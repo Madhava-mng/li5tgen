@@ -1,0 +1,11 @@
+#!/bin/env python3
+
+from sys import argv as ARG
+from lib.flag import check
+
+def main():
+    check(ARG)
+
+if __name__ == "__main__":
+    main()
+

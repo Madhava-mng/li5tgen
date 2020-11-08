@@ -54,3 +54,7 @@ worlist generator for all the things
         li5tgen console
         li5tgen edit -i input.txt --replace z,e --caps
         li5tgen edit -i input2.txt --crop ,4 --join ,it
+
+
+
+    --------------------@madhava-mng    https://github.com/Madhava-mng/li5tgen------------------------
