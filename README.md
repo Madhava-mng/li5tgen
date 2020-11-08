@@ -2,7 +2,7 @@
 worlist generator for all the things
 
 
-    Wordlist Generator, you have plety of wordlists in your hand 
+    Wordlist Generator, plety of wordlists in your hand 
 
     USAGE:   li5tgen <COMMAND> <ARGUMENTS>
 
