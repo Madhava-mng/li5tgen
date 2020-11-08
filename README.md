@@ -2,7 +2,14 @@
 worlist generator for all the things
 
 
-    Wordlist Generator, plety of wordlists in your hand 
+## Installation
+```bash $ apt install git ```
+```bash $ git clone https://github.com/Madhava-mng/li5tgen```
+```bash $ cd li5tgen```
+```bash $ ./setup.sh```
+```bash $ li5tgen help```
+
+    Wordlist Generator, plety of wordlists in your hand
 
     USAGE:   li5tgen <COMMAND> <ARGUMENTS>
 
