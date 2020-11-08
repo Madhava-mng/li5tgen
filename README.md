@@ -3,11 +3,14 @@ worlist generator for all the things
 
 
 ## Installation
-```bash $ apt install git
-$ git clone https://github.com/Madhava-mng/li5tgen
-$ cd li5tgen
-$ ./setup.sh
-$ li5tgen help```
+```bash 
+~# apt install git
+~$ git clone https://github.com/Madhava-mng/li5tgen
+~$ cd li5tgen
+~$ ./setup.sh
+~$ li5tgen help
+```
+
 
     Wordlist Generator, plety of wordlists in your hand
 
