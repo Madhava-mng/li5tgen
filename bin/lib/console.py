@@ -57,7 +57,12 @@ class li5tgen(cmd.Cmd):
         Search("")
 
     def do_inter(self,value):
-        Inter()
+        try:
+            Inter()
+        except KeyboardInterrupt:
+            print(Element["DISPLY"]["^C"])
+        except:
+            pass
 
     def do_get(self, value):
         if value != "":

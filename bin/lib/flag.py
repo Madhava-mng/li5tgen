@@ -42,7 +42,10 @@ def check(LIST):
                             print(Element["ERROR"]["ITER"], LIST[i], Element["HELP_ITER"]);exit()
                 Iter(CHAR, MIN, MAX, OUT)
             elif LIST[1] == "inter":
-                Inter()
+                try:
+                    Inter()
+                except KeyboardInterrupt:
+                    print(Element["DISPLY"]["^C"])
             elif LIST[1] == "search":
                 try:
                     Search(LIST[2])
