@@ -7,7 +7,7 @@ worlist generator for all the things
 ~# apt install git
 ~$ git clone https://github.com/Madhava-mng/li5tgen
 ~$ cd li5tgen
-~$ ./setup.sh
+~/li5tgen$ ./setup.sh
 ~$ li5tgen help
 ```
 
