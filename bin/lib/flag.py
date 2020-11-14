@@ -77,7 +77,7 @@ def check(LIST):
             elif LIST[1] == "help":
                 print(Element["HELP"])
         else:
-            print(Element["ERROR"]["COMMAND"],"-->", LIST[1])
+            print(Element["ERROR"]["COMMAND"], LIST[1])
     except IndexError:
         print(Element["ERROR"]["COMMANDS"])
 
