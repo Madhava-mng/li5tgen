@@ -115,6 +115,6 @@ def Inter(list_ = ["hellow", "hiii"]):
             tmplist.append(i)
     list_ = tmplist
     if FILENAME == "":
-        FILENAME = "wodlist.txt"
+        FILENAME = "wordlist.txt"
     Write(list_,FILENAME)
 
