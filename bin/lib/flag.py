@@ -28,18 +28,22 @@ def check(LIST):
             if LIST[1] == "iter":
                 for i in range(2,len(LIST)):
                     if LIST[i][0] == "-":
-                        if LIST[i] == "--min":
-                            MIN=LIST[i+1]
-                        elif LIST[i] == "--max":
-                            MAX=LIST[i+1]
-                        elif LIST[i] == "--char":
-                            CHAR=LIST[i+1]
-                        elif LIST[i] == "--out":
-                            OUT=LIST[i+1]
-                        elif LIST[i] == "--help":
-                            print(Element["HELP_ITER"]);exit()
-                        else:
-                            print(Element["ERROR"]["ITER"], LIST[i], Element["HELP_ITER"]);exit()
+                        try:
+                            if LIST[i] == "--min":
+                                MIN=LIST[i+1]
+                            elif LIST[i] == "--max":
+                                MAX=LIST[i+1]
+                            elif LIST[i] == "--char":
+                                CHAR=LIST[i+1]
+                            elif LIST[i] == "--out":
+                                OUT=LIST[i+1]
+                            elif LIST[i] == "--help":
+                                print(Element["HELP_ITER"])
+                                raise SystemExit
+                            else:
+                                print(Element["ERROR"]["ITER"], LIST[i], Element["HELP_ITER"]);exit()
+                        except IndexError:
+                                print(Element["ERROR"]["NOVAL"], LIST[i], Element["HELP_ITER"]);exit()
                 Iter(CHAR, MIN, MAX, OUT)
             elif LIST[1] == "inter":
                 try:

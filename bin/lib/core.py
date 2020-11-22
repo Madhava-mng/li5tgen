@@ -13,7 +13,7 @@ BB = "\u001b[34m"
 PP = "\u001b[35m"
 SS = "\u001b[36m"
 NN = "\u001b[00m"
-UU = "\u001b[4m"
+UU = "\u001b[1m\u001b[4m"
 BR = "\u001b[1m"
 
 RAND = choice([RR,GG,PP,YY,BB,SS])
@@ -22,24 +22,25 @@ Element = {
         "ERROR": {
 
             "NEGATIVE": "[ERROR] Negative Numbers.",
-            "NO_CHAR": "[ERROR] Char Not Given",
+            "NO_CHAR": "[ERROR] Char Not Satisfied. --char <value>",
             "MIN": "[ERROR] Min Value Must be Less than Max",
             "MAIN": "[ERROR] Main Argument Invalied -->",
             "PAR": "[ERROR] Invalied parameter",
             "ITER": "[ERROR] From command \"iter\" Invalied Flag -->",
             "COMMAND": "[ERROR] Invalied Command -->",
             "MINMAXINT": "[ERROR] The parameter of --min or --max must be Number",
+            "NOVAL": "[ERROR] Value Not Satisfied For",
             "COMMANDS": """
 Wordlist Generator, plenty of wordlists in your hand \n
 {L}USAGE{N}:   {T} <COMMAND> <ARGUMENTS>\n
 {L}commands{N}:
-    iter         Iteration mode   [ FLAG: --char, --min, --max, --out ]
+    iter         Iteration mode
     inter        Intractive mode
-    edit         Crop,join,replace strings in list [ FLAG: --crop, --replace, --join, --caps, --in ]
+    edit         Crop,join,replace strings in list
     search       Search for wordlist avilable on online
     get          Download wordlist from searched output
     console      li5tgen's console
-    help         for more Info\nType "{T} help" for more info """.format(L=UU,N=NN,T="li5tgen"),
+    help         for more Info\n\nType "{T} help" for more info """.format(L=UU,N=NN,T="li5tgen"),
             "DATE": "[ERROR] The Range Of Date 1-31",
             "MONTH": "[ERROR] The Range Of Month 1-12",
             "YEAR": "[ERROR] Too Advanced :)",
@@ -155,6 +156,7 @@ Wordlist Generator, plenty of wordlists in your hand \n
                     "o": ["0"],
                     "p": ["9"],
                     "z": ["2","7"],
+                    't': ["7"],
                     "l": ["1"],
                     "i": ["1"],
                     "e": ["3"],
