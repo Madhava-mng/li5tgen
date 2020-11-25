@@ -36,7 +36,7 @@ worlist generator for all the things
 
     inter  : li5tgen inter
     search : li5tgen search <key_word>
-    get    : get <Id> (Use After Search)
+    get    : li5tgen get <Id> (Use After Search)
     console: li5tgen console
     update : li5tgen update
     edit   : li5tgen edit --in <InputFile> --crop <Pre(INT)>,<Suff(INT)> --join <Pre>,<Suff> --replace <String>,<String> --caps
