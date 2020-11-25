@@ -80,6 +80,9 @@ def check(LIST):
             ## Print Help menu
             elif LIST[1] == "help":
                 print(Element["HELP"])
+            elif LIST[1] == "update":
+                from lib.cwd import update
+                update()
         else:
             print(Element["ERROR"]["COMMAND"], LIST[1])
     except IndexError:

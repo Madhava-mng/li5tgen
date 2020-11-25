@@ -5,7 +5,7 @@ Element: Nested dictnary
 
 """
 from  random import choice
-# Colores
+# Colors
 RR = "\u001b[31m"
 GG = "\u001b[32m"
 YY = "\u001b[33m"
@@ -19,6 +19,7 @@ BR = "\u001b[1m"
 RAND = choice([RR,GG,PP,YY,BB,SS])
 
 Element = {
+
         "ERROR": {
 
             "NEGATIVE": "[ERROR] Negative Numbers.",
@@ -32,7 +33,7 @@ Element = {
             "NOVAL": "[ERROR] Value Not Satisfied For",
             "COMMANDS": """
 Wordlist Generator, plenty of wordlists in your hand \n
-{L}USAGE{N}:   {T} <COMMAND> <ARGUMENTS>\n
+{L}USAGE{N}:   {T} [COMMAND] [ARGUMENTS]\n
 {L}commands{N}:
     iter         Iteration mode
     inter        Intractive mode
@@ -40,6 +41,7 @@ Wordlist Generator, plenty of wordlists in your hand \n
     search       Search for wordlist avilable on online
     get          Download wordlist from searched output
     console      li5tgen's console
+    update       Update
     help         for more Info\n\nType "{T} help" for more info """.format(L=UU,N=NN,T="li5tgen"),
             "DATE": "[ERROR] The Range Of Date 1-31",
             "MONTH": "[ERROR] The Range Of Month 1-12",
@@ -59,6 +61,7 @@ Wordlist Generator, plenty of wordlists in your hand \n
             "JOIN": "[ERROR] -j <char>,<char>"
             },
 
+
         "DISPLY": {
 
             "^C": "\r[Recived] Keyboard Interrupt                      ",
@@ -72,12 +75,14 @@ Wordlist Generator, plenty of wordlists in your hand \n
             "ITERCON": """HINT: [ options, set, run ]"""
             },
 
+
         "FLAG": {
 
-            "MAIN": ("iter", "inter", "console", "edit", "search", "get", "help"),
+            "MAIN": ("iter", "inter", "console", "edit", "search", "get", "help","update"),
             "EDIT": ("-i","--in", "-r", "--replace", "-c", "--crop", "-j", "--join", "-C", "--caps", "--help"),
             "ITER": ("--char", "--min", "--max", "--out" )
             },
+
 
         "LIST": {
             "COMMON": [
@@ -139,9 +144,9 @@ Wordlist Generator, plenty of wordlists in your hand \n
             "SPECIAL": {
 
                     "a":["@"],
-                    " ":["_"],
+                    " ":["_",",", ".."],
                     "s":["$","&"],
-                    "o":["@","*"],
+                    "o":["ø","*"],
                     "n":["^","~"],
                     "c":["(","[","{","<"],
                     "z":["%","&","?"],
@@ -164,6 +169,8 @@ Wordlist Generator, plenty of wordlists in your hand \n
                     },
             "FREETYPE": "{COL}Add Some INFO Hear{N}: ".format(COL = choice([RR,GG,YY,PP]),N=NN )
             },
+
+
         "SPECIAL": "{COL}Inject Special Char{N} [{G}y/N{N}]: ".format(COL=RAND,N=NN,G=GG),
         "UPPER": "{COL}Inject UpperCase{N} [{G}y/N{N}]: ".format(COL=RAND,N=NN,G=GG),
         "NUMBER": "{COL}Inject Numbers{N} [{G}y/N{N}]: ".format(COL=RAND,N=NN,G=GG),
@@ -173,8 +180,8 @@ Wordlist Generator, plenty of wordlists in your hand \n
         "COUNT": 0,
         "SPACE": "                              ",
         "REMINDER": 285623,
-        "PROMPT": "{}{}li5tgen{} > ".format(UU,GG,NN),
-        "ITERPROMPT": "{U}{G}li5tgen{N}({R}Itration{N}) > ".format(G=GG,U=UU,N=NN,R=RR),
+        "PROMPT": "[{}{}li5tgen{}] > ".format(NN,GG,NN),
+        "ITERPROMPT": "[{U}{G}li5tgen{N}][{R}Itration{N}] > ".format(G=GG,U=NN,N=NN,R=RR),
         "CONSOLEHELP":"""{U}                                       {N}
 
    {U}COMMAND{N}      {U}DISCRIPTION{N}
@@ -199,9 +206,11 @@ Wordlist Generator, plenty of wordlists in your hand \n
     rm        Remove files
     cat       Read file
 {U}                                       {N}""".format(U=UU,N=NN),
+
+
         "HELP": """
 Wordlist Generator, you have planty of wordlists in your hand \n
-{L}USAGE{N}:   {T} <COMMAND> <ARGUMENTS>
+{L}USAGE{N}:   {T} [COMMAND] [FLAGS]
 
 {L}commands{N}:
    iter     Iteration mode [ FLAG: --char, --min, --max, --out ]
@@ -210,7 +219,9 @@ Wordlist Generator, you have planty of wordlists in your hand \n
    search   Search for wordlist avilable on online
    get      Download wordlist from searched output
    console  li5tgen's console
+   update   Update
    help     This banner
+
 
 
 {L}iter{N}: {T} iter --char <ASCII> --min <NUMBER> --max <NUMBER> --out <filename>\n
@@ -220,36 +231,36 @@ Wordlist Generator, you have planty of wordlists in your hand \n
        --max     Maximum Length    Default set to 8
        --out     Wordlist name     Default set to wordlist.txt
 
-
 {L}inter{N}:    {T} inter
 
 {L}search{N}:   {T} search <key_word>
 
 {L}get{N}:  get <Id>,<Id>,...                 (Use After Search)
 
+{L}console{N}:  {T} console
+
 {L}edit{N}: {T} edit [ --in <InputFile>                           ]
-                   [ --crop <Pre({G}INT{N}>,<Suff({G}INT{N})>               ]
+                   [ --crop <Pre({G}INT{N})>,<Suff({G}INT{N})>              ]
                    [ --join <Pre>,<Suff>                        ]
                    [ --replace <String>,<String>                ]
                    [ --caps                                     ]
 
    {L}Note{N}: You can also use all the flags at once.First flag gets first Preferance\n
-   {L}Flags{N}:
-       -i   --in       Input file
-       -c   --crop     Crop strings
-                       USAGE: --crop <Pre({G}INT{N}>,<Suff({G}INT{N})>
-                       {G}EG:{N} "hellow Sufix" {G}-c 1,2{N} {Y}Result->{N} "ellow Suf"
-       -r   --replace  Replace char in the string
-                       USAGE: --replace <String>,<String>
-                       {G}EG:{N} "heeeee" {G}-r e,i{N} {Y}Result->{N} "hiiiii"
-       -j   --join     Join Prefix or suffix
-                       USAGE: --join <Pre>,<Suff>
-                       {G}EG:{N} "google" {G}-j wWw.,.com{N} {Y}Result->{N} "wWw.google.com"
-       -C   --caps     Write all possiblitys of UpperCase
-                       {G}EG:{N} "fo" {G}-C{N} {Y}Result->{N} ["Fo","fO","FO","fo"]
+       {L}Flags{N}:
+           -i   --in       Input file
+           -c   --crop     Crop strings
+                           USAGE: --crop <Pre({G}INT{N}>,<Suff({G}INT{N})>
+                           {G}EG:{N} "hellow Sufix" {G}-c 1,2{N} {Y}Result->{N} "ellow Suf"
+           -r   --replace  Replace char in the string
+                           USAGE: --replace <String>,<String>
+                           {G}EG:{N} "heeeee" {G}-r e,i{N} {Y}Result->{N} "hiiiii"
+           -j   --join     Join Prefix or suffix
+                           USAGE: --join <Pre>,<Suff>
+                           {G}EG:{N} "google" {G}-j wWw.,.com{N} {Y}Result->{N} "wWw.google.com"
+           -C   --caps     Write all possiblitys of UpperCase
+                           {G}EG:{N} "fo" {G}-C{N} {Y}Result->{N} ["Fo","fO","FO","fo"]
 
-
-{L}console{N}:  {T} console
+{L}update{N}:   {T} update
 
 {L}Examples{N}:\n
     {T} iter --char 1*Ch4r3 --min 3 --max 9 --out MyWodlist.txt
@@ -262,6 +273,8 @@ Wordlist Generator, you have planty of wordlists in your hand \n
 
 -----------@Madhava-mng    https://github.com/Madhava-mng/li5tgen ------------
 """.format(T="li5tgen", L=UU, N=NN, G=BR, Y=YY),
+
+
     "EDITHELP": """
 {L}edit{N}: {T} edit --in <InputFile> --crop <Pre({G}INT{N}>,<Suff({G}INT{N})> --join <Pre>,<Suff> --replace <String>,<String> --caps\n
     {L}Note{N}: You can also use all the flags at once.First flag gets first Preferance
@@ -273,6 +286,8 @@ Wordlist Generator, you have planty of wordlists in your hand \n
         -C      --caps      Write all possiblitys of UpperCase
                 --help      This Banner
     """.format(L=UU,N=NN,G=BR,T="li5tgen"),
+
+
     "HELP_ITER": """\n
 {L}iter{N}: {T} iter --char <ASCII> --min <NUMBER> --max <NUMBER> --out <filename>\n
     {L}Flags{N}:
