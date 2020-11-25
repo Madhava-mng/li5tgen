@@ -5,6 +5,7 @@ from lib.core import Element
 from lib.core import Dispay_option
 from lib.Search import Search
 from lib.download import Download
+from lib.cwd import update
 from os import system
 
 class Iter_console(cmd.Cmd):
@@ -47,7 +48,8 @@ class Iter_console(cmd.Cmd):
 
     def do_run(self, value):
         Iter(self.CHAR, self.MIN, self.MAX, self.OUT)
-
+    def do_update(self, value):
+        update()
     def do_help(self,value):
         print(Element["CONSOLEHELP"])
 

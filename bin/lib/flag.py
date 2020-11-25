@@ -7,6 +7,7 @@ from lib.Search import Search
 from lib.download import Download
 from lib.console import li5tgen
 from lib.edit import main_edit
+from lib.cwd import update
 
 
 def console():
@@ -81,7 +82,6 @@ def check(LIST):
             elif LIST[1] == "help":
                 print(Element["HELP"])
             elif LIST[1] == "update":
-                from lib.cwd import update
                 update()
         else:
             print(Element["ERROR"]["COMMAND"], LIST[1])

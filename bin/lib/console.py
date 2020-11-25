@@ -7,6 +7,7 @@ from lib.iter_console import Iter_console
 from lib.core import Dispay_option
 from os import system
 from lib.banner import BANNER
+from lib.cwd import update
 
 
 
@@ -27,7 +28,8 @@ class li5tgen(cmd.Cmd):
             i.cmdloop()
         except KeyboardInterrupt:
             li5tgen.do_iter("")
-
+    def do_update(self, value):
+        update()
     def do_help(self,value):
         print(Element["CONSOLEHELP"])
 
