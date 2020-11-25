@@ -235,7 +235,7 @@ Wordlist Generator, you have planty of wordlists in your hand \n
 
 {L}search{N}:   {T} search <key_word>
 
-{L}get{N}:  get <Id>,<Id>,...                 (Use After Search)
+{L}get{N}:  {T} get <Id>,<Id>,..        (Use After Search)
 
 {L}console{N}:  {T} console
 
