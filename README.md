@@ -14,7 +14,7 @@ worlist generator for all the things
 
     Wordlist Generator, plety of wordlists in your hand
 
-    USAGE:   li5tgen <COMMAND> <ARGUMENTS>
+    USAGE:   li5tgen [COMMAND] [ARGUMENTS]
 
     commands:
         iter         Iteration mode   [ FLAG: --char, --min, --max, --out ]
@@ -23,24 +23,23 @@ worlist generator for all the things
         search       Search for wordlist avilable on online
         get          Download wordlist from searched output
         console      li5tgen's console
+        update       To update li5tgen
         help         This banner
 
-    iter: li5tgen iter --char <ASCII> --min <NUMBER> --max <NUMBER> --out <filename>
+    iter  : li5tgen iter --char <ASCII> --min <NUMBER> --max <NUMBER> --out <filename>
+    
+            Flags:
+                --char       Strings
+                --min        Minimum Length     Default set to 1
+                --max        Maximum Length     Default set to 8
+                --out        Wordlist name      Default set to wordlist.txt
 
-        Flags:
-            --char       Strings
-            --min        Minimum Length     Default set to 1
-            --max        Maximum Length     Default set to 8
-            --out        Wordlist name      Default set to wordlist.txt
-
-    inter:    li5tgen inter
-
-    search:   li5tgen search <key_word>
-
-    get:  get <Id>                 (Use After Search)
-
-    edit: li5tgen edit --in <InputFile> --crop <Pre(INT>,<Suff(INT)> --join <Pre>,<Suff> --replace <String>,<String> --caps
-
+    inter  : li5tgen inter
+    search : li5tgen search <key_word>
+    get    : get <Id> (Use After Search)
+    console: li5tgen console
+    update : li5tgen update
+    edit   : li5tgen edit --in <InputFile> --crop <Pre(INT)>,<Suff(INT)> --join <Pre>,<Suff> --replace <String>,<String> --caps
         Note: You can also use all the flags at once.First flag gets first Preferance
         Flags:
             -i   --in        Input file
@@ -53,8 +52,6 @@ worlist generator for all the things
             -C   --caps      Write all possiblitys of UpperCase
                              EG: "fo" -C Result-> ["Fo","fO","FO","fo"]
 
-    console:  li5tgen console
-
     Examples:
 
         li5tgen iter --char 1*Ch4r3 --min 3 --max 9 --out MyWodlist.txt
@@ -64,7 +61,6 @@ worlist generator for all the things
         li5tgen console
         li5tgen edit -i input.txt --replace z,e --caps
         li5tgen edit -i input2.txt --crop ,4 --join ,it
-
-
+        li5tgen update
 
     --------------------@madhava-mng    https://github.com/Madhava-mng/li5tgen------------------------
