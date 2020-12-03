@@ -1,5 +1,9 @@
 #!/bin/env python3
 
+"""
+Main function of Listgen
+"""
+
 from sys import argv as ARG
 from lib.flag import check
 
