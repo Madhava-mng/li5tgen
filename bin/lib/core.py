@@ -31,6 +31,7 @@ Element = {
             "COMMAND": "[ERROR] Invalied Command -->",
             "MINMAXINT": "[ERROR] The parameter of -min or -max must be Number",
             "NOVAL": "[ERROR] Value Not Satisfied For",
+            "SETUP": "[ERROR] Please Run \"./setup.sh\"",
             "COMMANDS": """
 Wordlist Generator, plenty of wordlists in your hand \n
 {L}USAGE{N}:   {T} [COMMAND] [ARGUMENTS]\n

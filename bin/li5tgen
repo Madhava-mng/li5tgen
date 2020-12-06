@@ -4,8 +4,13 @@
 Main function of Listgen
 """
 
-from sys import argv as ARG
-from lib.flag import check
+try:
+    from sys import argv as ARG
+    from lib.core import Element
+    from lib.flag import check
+except ModuleNotFoundError:
+    print(Element["ERROR"]["SETUP"])
+    raise SystemExit
 
 def main():
     check(ARG)
