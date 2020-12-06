@@ -30,15 +30,15 @@ def check(LIST):
                 for i in range(2,len(LIST)):
                     if LIST[i][0] == "-":
                         try:
-                            if LIST[i] == "--min":
+                            if LIST[i] in ("-min", "--minimum"):
                                 MIN=LIST[i+1]
-                            elif LIST[i] == "--max":
+                            elif LIST[i] == ("-max", "--maximum"):
                                 MAX=LIST[i+1]
-                            elif LIST[i] == "--char":
+                            elif LIST[i] == ("-c", "--char"):
                                 CHAR=LIST[i+1]
-                            elif LIST[i] == "--out":
+                            elif LIST[i] == ("-o", "--out"):
                                 OUT=LIST[i+1]
-                            elif LIST[i] == "--help":
+                            elif LIST[i] == ("-h", "--help"):
                                 print(Element["HELP_ITER"])
                                 raise SystemExit
                             else:

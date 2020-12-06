@@ -29,7 +29,7 @@ Element = {
             "PAR": "[ERROR] Invalied parameter",
             "ITER": "[ERROR] From command \"iter\" Invalied Flag -->",
             "COMMAND": "[ERROR] Invalied Command -->",
-            "MINMAXINT": "[ERROR] The parameter of --min or --max must be Number",
+            "MINMAXINT": "[ERROR] The parameter of -min or -max must be Number",
             "NOVAL": "[ERROR] Value Not Satisfied For",
             "COMMANDS": """
 Wordlist Generator, plenty of wordlists in your hand \n
@@ -80,7 +80,7 @@ Wordlist Generator, plenty of wordlists in your hand \n
 
             "MAIN": ("iter", "inter", "console", "edit", "search", "get", "help","update"),
             "EDIT": ("-i","--in", "-r", "--replace", "-c", "--crop", "-j", "--join", "-C", "--caps", "--help"),
-            "ITER": ("--char", "--min", "--max", "--out" )
+            "ITER": ("--char", "-min", "-max", "--out", "--minimum", "--maximum", "-o", "-c" )
             },
 
 
@@ -213,7 +213,7 @@ Wordlist Generator, you have planty of wordlists in your hand \n
 {L}USAGE{N}:   {T} [COMMAND] [FLAGS]
 
 {L}commands{N}:
-   iter     Iteration mode [ FLAG: --char, --min, --max, --out ]
+   iter     Iteration mode [ FLAG: --char, --minimum, --maximum, --out ]
    inter    Intractive mode
    edit     Crop,join,replace strings [ FLAG: --crop, --replace, --join, --caps, --in ]
    search   Search for wordlist avilable on online
@@ -224,12 +224,13 @@ Wordlist Generator, you have planty of wordlists in your hand \n
 
 
 
-{L}iter{N}: {T} iter --char <ASCII> --min <NUMBER> --max <NUMBER> --out <filename>\n
+{L}iter{N}: {T} iter --char <ASCII> --minimum <NUMBER> --maximum <NUMBER> --out <filename>\n
    {L}Flags{N}:
-       --char    Strings
-       --min     Minimum Length    Default set to 1
-       --max     Maximum Length    Default set to 8
-       --out     Wordlist name     Default set to wordlist.txt
+      -c    --char      Strings
+      -min  --minimum   Minimum Length    Default set to 1
+      -max  --maximum   Maximum Length    Default set to 8
+      -o    --out       Wordlist name     Default set to wordlist.txt
+      -h    --help      Iter Help Banner
 
 {L}inter{N}:    {T} inter
 
@@ -263,7 +264,7 @@ Wordlist Generator, you have planty of wordlists in your hand \n
 {L}update{N}:   {T} update
 
 {L}Examples{N}:\n
-    {T} iter --char 1*Ch4r3 --min 3 --max 9 --out MyWodlist.txt
+    {T} iter --char 1*Ch4r3 -min 3 -max 9 --out MyWodlist.txt
     {T} inter
     {T} search password
     {T} get 146,150,13
@@ -289,13 +290,13 @@ Wordlist Generator, you have planty of wordlists in your hand \n
 
 
     "HELP_ITER": """\n
-{L}iter{N}: {T} iter --char <ASCII> --min <NUMBER> --max <NUMBER> --out <filename>\n
+{L}iter{N}: {T} iter --char <ASCII> --minimum <NUMBER> --maximum <NUMBER> --out <filename>\n
     {L}Flags{N}:
-        --char       Strings
-        --min        Minimum Length     Default set to 1
-        --max        Maximum Length     Default set to 8
-        --out        Wordlist name      Default set to wordlist.txt
-        --help       This banner
+      -c    --char      Strings
+      -min  --minimum   Minimum Length    Default set to 1
+      -max  --maximum   Maximum Length    Default set to 8
+      -o    --out       Wordlist name     Default set to wordlist.txt
+      -h    --help      This Help Banner
 """.format(T="li5tgen", L=UU, N=NN)
         }
 
