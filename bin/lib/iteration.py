@@ -30,7 +30,7 @@ def Iteration(char, MIN , MAX , File, C = 0):
                 Time_bal=(C/Total)*100
                 if Time != time.time()//1:
                     Time+=1;avareg = C-avareg
-                    print("\r[{:.0f}%] {}/sec {}/{}      ".format((C/Total)*100,avareg,Total-C,Total),end='');avareg=C
+                    print("\r[{:.0f}%][{} line/sec][{}/{}]         ".format((C/Total)*100,avareg,Total-C,Total),end='');avareg=C
     print(Element["DISPLY"]["DONE"])
     Buffer.close()
     return 0
