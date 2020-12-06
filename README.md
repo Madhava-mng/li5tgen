@@ -11,19 +11,19 @@ worlist generator for all the things
 ~$ li5tgen help
 ```
 
-Wordlist Generator, you have planty of wordlists in your hand
+            Wordlist Generator, you have planty of wordlists in your hand
 
-USAGE:   li5tgen [COMMAND] [FLAGS]
+            USAGE:   li5tgen [COMMAND] [FLAGS]
 
-commands:
-   iter     Iteration mode [ FLAG: --char, --minimum, --maximum, --out ]
-   inter    Intractive mode
-   edit     Crop,join,replace strings [ FLAG: --crop, --replace, --join, --caps, --in ]
-   search   Search for wordlist avilable on online
-   get      Download wordlist from searched output
-   console  li5tgen's console
-   update   Update
-   help     This banner
+            commands:
+               iter     Iteration mode [ FLAG: --char, --minimum, --maximum, --out ]
+               inter    Intractive mode
+               edit     Crop,join,replace strings [ FLAG: --crop, --replace, --join, --caps, --in ]
+               search   Search for wordlist avilable on online
+               get      Download wordlist from searched output
+               console  li5tgen's console
+               update   Update
+               help     This banner
 
 
 
