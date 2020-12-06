@@ -32,13 +32,13 @@ def check(LIST):
                         try:
                             if LIST[i] in ("-min", "--minimum"):
                                 MIN=LIST[i+1]
-                            elif LIST[i] == ("-max", "--maximum"):
+                            elif LIST[i] in ("-max", "--maximum"):
                                 MAX=LIST[i+1]
-                            elif LIST[i] == ("-c", "--char"):
+                            elif LIST[i] in ("-c", "--char"):
                                 CHAR=LIST[i+1]
-                            elif LIST[i] == ("-o", "--out"):
+                            elif LIST[i] in ("-o", "--out"):
                                 OUT=LIST[i+1]
-                            elif LIST[i] == ("-h", "--help"):
+                            elif LIST[i] in ("-h", "--help"):
                                 print(Element["HELP_ITER"])
                                 raise SystemExit
                             else:

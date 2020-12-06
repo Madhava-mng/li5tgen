@@ -78,7 +78,7 @@ Wordlist Generator, plenty of wordlists in your hand \n
 
         "FLAG": {
 
-            "MAIN": ("iter", "inter", "console", "edit", "search", "get", "help","update"),
+            "MAIN": ("iter", "inter", "console", "edit", "search", "get", "help", "update"),
             "EDIT": ("-i","--in", "-r", "--replace", "-c", "--crop", "-j", "--join", "-C", "--caps", "--help"),
             "ITER": ("--char", "-min", "-max", "--out", "--minimum", "--maximum", "-o", "-c" )
             },
