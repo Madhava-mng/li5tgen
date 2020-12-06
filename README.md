@@ -27,56 +27,56 @@ commands:
 
 
 
-iter: li5tgen iter --char <ASCII> --minimum <NUMBER> --maximum <NUMBER> --out <filename>
+            iter: li5tgen iter --char <ASCII> --minimum <NUMBER> --maximum <NUMBER> --out <filename>
 
-   Flags:
-      -c    --char      Ascii
-      -min  --minimum   Minimum Length    Default set to 1
-      -max  --maximum   Maximum Length    Default set to 8
-      -o    --out       Wordlist name     Default set to wordlist.txt
-      -h    --help      Iter Help Banner
+               Flags:
+                  -c    --char      Ascii
+                  -min  --minimum   Minimum Length    Default set to 1
+                  -max  --maximum   Maximum Length    Default set to 8
+                  -o    --out       Wordlist name     Default set to wordlist.txt
+                  -h    --help      Iter Help Banner
 
-inter:    li5tgen inter
+            inter:    li5tgen inter
 
-search:   li5tgen search <key_word>
+            search:   li5tgen search <key_word>
 
-get:  li5tgen get <Id>,<Id>,..        (Use After Search)
+            get:  li5tgen get <Id>,<Id>,..        (Use After Search)
 
-console:  li5tgen console
+            console:  li5tgen console
 
-edit: li5tgen edit [ --in <InputFile>                           ]
-                   [ --crop <Pre(INT)>,<Suff(INT)>              ]
-                   [ --join <Pre>,<Suff>                        ]
-                   [ --replace <String>,<String>                ]
-                   [ --caps                                     ]
+            edit: li5tgen edit [ --in <InputFile>                           ]
+                               [ --crop <Pre(INT)>,<Suff(INT)>              ]
+                               [ --join <Pre>,<Suff>                        ]
+                               [ --replace <String>,<String>                ]
+                               [ --caps                                     ]
 
-   Note: You can also use all the flags at once.First flag gets first Preferance
+               Note: You can also use all the flags at once.First flag gets first Preferance
 
-       Flags:
-           -i   --in       Input file
-           -c   --crop     Crop strings
-                           USAGE: --crop <Pre(INT>,<Suff(INT)>
-                           EG: "hellow Sufix" -c 1,2 Result-> "ellow Suf"
-           -r   --replace  Replace char in the string
-                           USAGE: --replace <String>,<String>
-                           EG: "heeeee" -r e,i Result-> "hiiiii"
-           -j   --join     Join Prefix or suffix
-                           USAGE: --join <Pre>,<Suff>
-                           EG: "google" -j wWw.,.com Result-> "wWw.google.com"
-           -C   --caps     Write all possiblitys of UpperCase
-                           EG: "fo" -C Result-> ["Fo","fO","FO","fo"]
+                   Flags:
+                       -i   --in       Input file
+                       -c   --crop     Crop strings
+                                       USAGE: --crop <Pre(INT>,<Suff(INT)>
+                                       EG: "hellow Sufix" -c 1,2 Result-> "ellow Suf"
+                       -r   --replace  Replace char in the string
+                                       USAGE: --replace <String>,<String>
+                                       EG: "heeeee" -r e,i Result-> "hiiiii"
+                       -j   --join     Join Prefix or suffix
+                                       USAGE: --join <Pre>,<Suff>
+                                       EG: "google" -j wWw.,.com Result-> "wWw.google.com"
+                       -C   --caps     Write all possiblitys of UpperCase
+                                       EG: "fo" -C Result-> ["Fo","fO","FO","fo"]
 
-update:   li5tgen update
+            update:   li5tgen update
 
-Examples:
+            Examples:
 
-    li5tgen iter --char 1*Ch4r3 -min 3 -max 9 --out MyWodlist.txt
-    li5tgen inter
-    li5tgen search password
-    li5tgen get 146,150,13
-    li5tgen console
-    li5tgen edit -i input.txt --replace z,e --caps
-    li5tgen edit -i input2.txt --crop ,4 --join ,it
+                li5tgen iter --char 1*Ch4r3 -min 3 -max 9 --out MyWodlist.txt
+                li5tgen inter
+                li5tgen search password
+                li5tgen get 146,150,13
+                li5tgen console
+                li5tgen edit -i input.txt --replace z,e --caps
+                li5tgen edit -i input2.txt --crop ,4 --join ,it
 
------------------------@Madhava-mng    https://github.com/Madhava-mng/li5tgen ---------------------------
+            -----------------------@Madhava-mng    https://github.com/Madhava-mng/li5tgen ---------------------------
 
