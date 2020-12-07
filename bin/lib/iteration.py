@@ -52,6 +52,8 @@ def Iter(char, MIN, MAX, File):
             print(Element["ERROR"]["NO_CHAR"],Element["HELP_ITER"])
     except KeyboardInterrupt:
         print(Element["DISPLY"]["^C"])
-    except:
+    except ValueError:
         print(Element["ERROR"]["MINMAXINT"])
+    except OSError:
+        print(Element["ERROR"]["SPACE"])
     return 0

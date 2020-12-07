@@ -20,6 +20,8 @@ def start(URL):
         Buffer.close()
         request.close()
         print(Element["DISPLY"]["COMPLET"])
+    except OSError:
+        print(Element["ERROR"]["SPACE"])
     except:
         print(Element["ERROR"]["UNREACHABLE"])
     return
@@ -39,5 +41,7 @@ def Download(Id):
             Thread(target= Get , args=(int(i),)).start()
     except ValueError:
         print(Element["ERROR"]["INT"], "-->" ,Id)
+    except OSError:
+        print(Element["ERROR"]["SPACE"])
     return
 
