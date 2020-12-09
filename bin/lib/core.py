@@ -32,7 +32,7 @@ Element = {
             "MINMAXINT": "[ERROR] The parameter of -min or -max must be Number",
             "NOVAL": "[ERROR] Value Not Satisfied For",
             "SETUP": "[ERROR] Please Run \"./setup.sh\"",
-            "SPACE": "\r[ERROR] Disk full !                              ",
+            "SPACE": "\r[ERROR] Disk full !                                  ",
             "COMMANDS": """
 Wordlist Generator, plenty of wordlists in your hand \n
 {L}USAGE{N}:   {T} [COMMAND] [ARGUMENTS]\n
@@ -40,7 +40,7 @@ Wordlist Generator, plenty of wordlists in your hand \n
     iter         Iteration mode
     inter        Intractive mode
     edit         Crop,join,replace strings in list
-    search       Search for wordlist avilable on online
+    search       Search for wordlist available in database
     get          Download wordlist from searched output
     console      li5tgen's console
     update       Update
@@ -54,8 +54,8 @@ Wordlist Generator, plenty of wordlists in your hand \n
             "DOWNLOAD": "[ERROR] Id Not Given\n\nUSAGE:       {N} get <Id>".format(N="li5tgen"),
             "ID": "[ERROR] Invalied Id",
             "SEARCH_C": "search <KeyWord>",
-            "DOWNLOAD_C": "get <Id>",
-            "UNREACHABLE": "[ERROR] Network Unreachable",
+            "DOWNLOAD_C": "get <Id>,<Id>",
+            "UNREACHABLE": "[ERROR] Network Unreachable -->",
             "CROP": "[ERROR] -c <int>,<int> Integer Required",
             "FILE": "[ERROR] File Not Found",
             "UFILE": "[ERROR] File Not Specified",
@@ -68,10 +68,10 @@ Wordlist Generator, plenty of wordlists in your hand \n
 
             "^C": "\r[Recived] Keyboard Interrupt                      ",
             "DOB": "[ Note: The Length Of The DOB Must be 8 , Eg: 17082001 ]",
-            "DONE": "\r[100%] Fineshed                          ",
+            "DONE": "\r[100%] Fineshed                               ",
             "SINFO": "[Free Type] Note: simply type \"{G}:q{N}\" to go back".format(G=GG,N=NN),
-            "STARTED": "[STARTED] Requesting Query",
-            "COMPLET": "[SUCCESS] Downloaded Successfully",
+            "STARTED": "[STARTED] Request Sent -->",
+            "COMPLET": "[SUCCESS] Downloaded Successfully -->",
             "SHOW": "\n\tshow <command>\n\tcommand: [list,command]\n",
             "BACK": "[HOME] Already Satisfyed",
             "ITERCON": """HINT: [ options, set, run ]"""
@@ -215,10 +215,10 @@ Wordlist Generator, you have planty of wordlists in your hand \n
 {L}USAGE{N}:   {T} [COMMAND] [FLAGS]
 
 {L}commands{N}:
-   iter     Iteration mode [ FLAG: --char, --minimum, --maximum, --out ]
+   iter     Iteration mode
    inter    Intractive mode
-   edit     Crop,join,replace strings [ FLAG: --crop, --replace, --join, --caps, --in ]
-   search   Search for wordlist avilable on online
+   edit     Crop,join,replace strings
+   search   Search for wordlist available in database
    get      Download wordlist from searched output
    console  li5tgen's console
    update   Update
@@ -226,44 +226,47 @@ Wordlist Generator, you have planty of wordlists in your hand \n
 
 
 
-{L}iter{N}: {T} iter --char <ASCII> --minimum <NUMBER> --maximum <NUMBER> --out <filename>\n
-   {L}Flags{N}:
-      -c    --char      Strings
-      -min  --minimum   Minimum Length    Default set to 1
-      -max  --maximum   Maximum Length    Default set to 8
-      -o    --out       Wordlist name     Default set to wordlist.txt
-      -h    --help      Iter Help Banner
+{L}iter{N}: {T} iter --char <ASCII> -min <INT> -max <INT> -out <file>\n
+  {L}Flags{N}:
+   -c    --char      Strings
+   -min  --minimum   Minimum Length    Default set to 1
+   -max  --maximum   Maximum Length    Default set to 8
+   -o    --out       Wordlist name     Default set to wordlist.txt
+   -h    --help      Iter Help Banner
 
-{L}inter{N}:    {T} inter
 
-{L}search{N}:   {T} search <key_word>
+{L}inter{N}:   {T} inter
 
-{L}get{N}:  {T} get <Id>,<Id>,..        (Use After Search)
+{L}search{N}:  {T} search <key_word>
 
-{L}console{N}:  {T} console
+{L}get{N}:     {T} get <Id>,<Id>,..       (Use After Search)
+                     <Id>-<Id>
 
-{L}edit{N}: {T} edit [ --in <InputFile>                           ]
-                   [ --crop <Pre({G}INT{N})>,<Suff({G}INT{N})>              ]
-                   [ --join <Pre>,<Suff>                        ]
-                   [ --replace <String>,<String>                ]
-                   [ --caps                                     ]
+{L}console{N}: {T} console
 
-   {L}Note{N}: You can also use all the flags at once.First flag gets first Preferance\n
-       {L}Flags{N}:
-           -i   --in       Input file
-           -c   --crop     Crop strings
-                           USAGE: --crop <Pre({G}INT{N}>,<Suff({G}INT{N})>
-                           {G}EG:{N} "hellow Sufix" {G}-c 1,2{N} {Y}Result->{N} "ellow Suf"
-           -r   --replace  Replace char in the string
-                           USAGE: --replace <String>,<String>
-                           {G}EG:{N} "heeeee" {G}-r e,i{N} {Y}Result->{N} "hiiiii"
-           -j   --join     Join Prefix or suffix
-                           USAGE: --join <Pre>,<Suff>
-                           {G}EG:{N} "google" {G}-j wWw.,.com{N} {Y}Result->{N} "wWw.google.com"
-           -C   --caps     Write all possiblitys of UpperCase
-                           {G}EG:{N} "fo" {G}-C{N} {Y}Result->{N} ["Fo","fO","FO","fo"]
+{L}update{N}:  {T} update
 
-{L}update{N}:   {T} update
+{L}edit{N}:    {T} edit [ --in <InputFile>                         ]
+                      [ --crop <Pre({G}INT{N})>,<Suff({G}INT{N})>            ]
+                      [ --join <Pre>,<Suff>                      ]
+                      [ --replace <String>,<String>              ]
+                      [ --caps                                   ]
+
+
+  {L}Flags{N}:
+    -i   --in       Input file
+    -c   --crop     Crop strings
+                    USAGE: --crop <Pre({G}INT{N}>,<Suff({G}INT{N})>
+                    {G}EG:{N} "hellow Sufix" {G}-c 1,2{N} {Y}Result->{N} "ellow Suf"
+    -r   --replace  Replace char in the string
+                    USAGE: --replace <String>,<String>
+                    {G}EG:{N} "heeeee" {G}-r e,i{N} {Y}Result->{N} "hiiiii"
+    -j   --join     Join Prefix or suffix
+                    USAGE: --join <Pre>,<Suff>
+                    {G}EG:{N} "google" {G}-j wWw.,.com{N} {Y}Result->{N} "wWw.google.com"
+    -C   --caps     Write all possiblitys of UpperCase
+                    {G}EG:{N} "fo" {G}-C{N} {Y}Result->{N} ["Fo","fO","FO","fo"]
+
 
 {L}Examples{N}:\n
     {T} iter --char 1*Ch4r3 -min 3 -max 9 --out MyWodlist.txt
@@ -274,25 +277,24 @@ Wordlist Generator, you have planty of wordlists in your hand \n
     {T} edit -i input.txt --replace z,e --caps
     {T} edit -i input2.txt --crop ,4 --join ,it
 
------------@Madhava-mng    https://github.com/Madhava-mng/li5tgen ------------
+----------@Madhava-mng    https://github.com/Madhava-mng/li5tgen ----------
 """.format(T="li5tgen", L=UU, N=NN, G=BR, Y=YY),
 
 
     "EDITHELP": """
 {L}edit{N}: {T} edit --in <InputFile> --crop <Pre({G}INT{N}>,<Suff({G}INT{N})> --join <Pre>,<Suff> --replace <String>,<String> --caps\n
-    {L}Note{N}: You can also use all the flags at once.First flag gets first Preferance
     {L}Flags{N}:
-        -i      --in        Input file
-        -c      --crop      Crop strings
-        -r      --replace   Replace char in the string
-        -j      --join      Join Prefix or suffix
-        -C      --caps      Write all possiblitys of UpperCase
-                --help      This Banner
+      -i      --in        Input file
+      -c      --crop      Crop strings
+      -r      --replace   Replace char in the string
+      -j      --join      Join Prefix or suffix
+      -C      --caps      Write all possiblitys of UpperCase
+              --help      This Banner
     """.format(L=UU,N=NN,G=BR,T="li5tgen"),
 
 
     "HELP_ITER": """\n
-{L}iter{N}: {T} iter --char <ASCII> --minimum <NUMBER> --maximum <NUMBER> --out <filename>\n
+{L}iter{N}: {T} iter --char <ASCII> -min <NUMBER> -max <NUMBER> --out <file>\n
     {L}Flags{N}:
       -c    --char      Strings
       -min  --minimum   Minimum Length    Default set to 1

@@ -7,29 +7,29 @@ from re import ASCII
 from lib.core import Element
 from threading import Thread
 
-def start(URL):
+def start(URL, Id):
     for i in range(len(URL)):
         if URL[-i] == "/":
             filename = URL[-i+1:]
             break
     try:
-        print(Element["DISPLY"]["STARTED"])
+        print(Element["DISPLY"]["STARTED"], Id)
         request = get(URL)
         with open(filename,"w") as Buffer:
             Buffer.write(request.text)
         Buffer.close()
         request.close()
-        print(Element["DISPLY"]["COMPLET"])
-    except OSError:
-        print(Element["ERROR"]["SPACE"])
+        print(Element["DISPLY"]["COMPLET"], Id)
+        """except OSError:
+            print(Element["ERROR"]["SPACE"])"""
     except:
-        print(Element["ERROR"]["UNREACHABLE"])
+        print(Element["ERROR"]["UNREACHABLE"], Id)
     return
 
 def Get(ID):
     try:
         x = search(r'(.*?)\|:(.*).*', LIST_OF_URI[ID], ASCII)
-        start(x.group(1)+x.group(2))
+        start(x.group(1)+x.group(2), ID)
     except IndexError:
         print(Element["ERROR"]["ID"],"-->",ID)
     return
@@ -37,8 +37,12 @@ def Get(ID):
 
 def Download(Id):
     try:
-        for i in Id.split(","):
-            Thread(target= Get , args=(int(i),)).start()
+        if ","  in list(Id):
+            for i in Id.split(","):
+                Thread(target= Get , args=(int(i),)).start()
+        elif "-" in list(Id):
+            for i in range([int(x) for x in Id.split("-")][0],[int(x) for x in Id.split("-")][1]+1):
+                Thread(target= Get , args=(int(i),)).start()
     except ValueError:
         print(Element["ERROR"]["INT"], "-->" ,Id)
     except OSError:
