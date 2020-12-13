@@ -55,13 +55,13 @@ class Iter_console(cmd.Cmd):
 
     def do_search(self, value):
         if value !="":
-            Search(value)
+            Search(value.split())
         else:
             print(Element["ERROR"]["SEARCH_C"])
 
     def do_get(self, value):
         if value != "":
-            Download(value)
+            Download(value.split())
         else:
             print(Element["ERROR"]["DOWNLOAD_C"])
 

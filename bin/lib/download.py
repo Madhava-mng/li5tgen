@@ -34,18 +34,20 @@ def Get(ID):
         print(Element["ERROR"]["ID"],"-->",ID)
     return
 
-
-def Download(Id):
-    try:
-        if ","  in list(Id):
-            for i in Id.split(","):
-                Thread(target= Get , args=(int(i),)).start()
-        elif "-" in list(Id):
-            for i in range([int(x) for x in Id.split("-")][0],[int(x) for x in Id.split("-")][1]+1):
-                Thread(target= Get , args=(int(i),)).start()
-    except ValueError:
-        print(Element["ERROR"]["INT"], "-->" ,Id)
-    except OSError:
-        print(Element["ERROR"]["SPACE"])
+def Download(ID):
+    for Id in ID:
+        try:
+            if ","  in list(Id):
+                for i in Id.split(","):
+                    Thread(target= Get , args=(int(i),)).start()
+            elif "-" in list(Id):
+                for i in range([int(x) for x in Id.split("-")][0],[int(x) for x in Id.split("-")][1]+1):
+                    Thread(target= Get , args=(int(i),)).start()
+            else:
+                Thread(target= Get , args=(int(Id),)).start()
+        except ValueError:
+            print(Element["ERROR"]["INT"], "-->" ,Id)
+        except OSError:
+            print(Element["ERROR"]["SPACE"])
     return
 

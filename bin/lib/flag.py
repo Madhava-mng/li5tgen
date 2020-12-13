@@ -8,6 +8,7 @@ from lib.download import Download
 from lib.console import li5tgen
 from lib.edit import main_edit
 from lib.cwd import update
+from lib.banner import BANNER
 
 
 def console():
@@ -28,23 +29,34 @@ def check(LIST):
             ## Try to call Iteration
             if LIST[1] == "iter":
                 for i in range(2,len(LIST)):
-                    if LIST[i][0] == "-":
-                        try:
-                            if LIST[i] in ("-min", "--minimum"):
-                                MIN=LIST[i+1]
-                            elif LIST[i] in ("-max", "--maximum"):
-                                MAX=LIST[i+1]
-                            elif LIST[i] in ("-c", "--char"):
-                                CHAR=LIST[i+1]
-                            elif LIST[i] in ("-o", "--out"):
-                                OUT=LIST[i+1]
-                            elif LIST[i] in ("-h", "--help"):
-                                print(Element["HELP_ITER"])
-                                raise SystemExit
-                            else:
-                                print(Element["ERROR"]["ITER"], LIST[i], Element["HELP_ITER"]);exit()
-                        except IndexError:
-                                print(Element["ERROR"]["NOVAL"], LIST[i], Element["HELP_ITER"]);exit()
+                    if LIST[i][0] == "-" or LIST[i][-1] == "-":
+                        if LIST[i] in Element["FLAG"]["ITER"]:
+                            try:
+                                if LIST[i] in ("-min", "--minimum"):
+                                    MIN=LIST[i+1]
+                                elif LIST[i] in ("-max", "--maximum"):
+                                    MAX=LIST[i+1]
+                                elif LIST[i] in ("-c", "--char"):
+                                    CHAR=LIST[i+1]
+                                elif LIST[i] in ("-o", "--out"):
+                                    OUT=LIST[i+1]
+                                elif LIST[i] in ("-h", "--help"):
+                                    print(Element["HELP_ITER"])
+                                    raise SystemExit
+                                elif LIST[i] in ("min-", "minimum--"):
+                                    MIN = LIST[i-1]
+                                elif LIST[i] in ("max-", "maximum--"):
+                                    MAX = LIST[i-1]
+                                elif LIST[i] in ("c-", "char--"):
+                                    CHAR = LIST[i-1]
+                                elif LIST[i] in ("o-", "out--"):
+                                    OUT = LIST[i-1]
+                                else:
+                                    print(Element["ERROR"]["ITER"], LIST[i], Element["HELP_ITER"]);exit()
+                            except IndexError:
+                                    print(Element["ERROR"]["NOVAL"], LIST[i], Element["HELP_ITER"]);exit()
+                        else:
+                            print(Element["ERROR"]["ITER"], LIST[i], Element["HELP_ITER"]);exit()
                 Iter(CHAR, MIN, MAX, OUT)
             elif LIST[1] == "inter":
                 try:
@@ -53,15 +65,18 @@ def check(LIST):
                     print(Element["DISPLY"]["^C"])
             elif LIST[1] == "search":
                 try:
-                    Search(LIST[2])
+                    passthe=LIST[2]
+                    Search(LIST[2:])
                 except:
                     print(Element["ERROR"]["SEARCH"])
             elif LIST[1] == "get":
                 try:
-                    Download(LIST[2])
+                    passthe=LIST[2]
+                    Download(LIST[2:])
                 except:
                     print(Element["ERROR"]["DOWNLOAD"])
             elif LIST[1] == "console":
+                print(BANNER)
                 console()
             elif LIST[1] == "edit":
                 for i in range(len(LIST)):

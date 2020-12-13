@@ -6,7 +6,6 @@ from lib.Intractive import Inter
 from lib.iter_console import Iter_console
 from lib.core import Dispay_option
 from os import system
-from lib.banner import BANNER
 from lib.cwd import update
 
 
@@ -17,7 +16,7 @@ class li5tgen(cmd.Cmd):
 
     def do_search(self, value):
         if value !="":
-            Search(value)
+            Search(value.split())
         else:
             print(Element["ERROR"]["SEARCH_C"])
 
@@ -68,7 +67,7 @@ class li5tgen(cmd.Cmd):
 
     def do_get(self, value):
         if value != "":
-            Download(value)
+            Download(value.split())
         else:
             print(Element["ERROR"]["DOWNLOAD_C"])
 
@@ -108,8 +107,6 @@ class li5tgen(cmd.Cmd):
     def postloop(self):
         print()
 
-    def preloop(self):
-        print(BANNER)
 
 
 if __name__ == '__main__':

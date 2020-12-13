@@ -15,8 +15,16 @@ SS = "\u001b[36m"
 NN = "\u001b[00m"
 UU = "\u001b[1m\u001b[4m"
 BR = "\u001b[1m"
+GR = "\u001b[2m"
 
-RAND = choice([RR,GG,PP,YY,BB,SS])
+RAND = choice([
+    RR,
+    GG,
+    PP,
+    YY,
+    BB,
+    SS
+    ])
 
 Element = {
 
@@ -30,7 +38,7 @@ Element = {
             "ITER": "[ERROR] From command \"iter\" Invalied Flag -->",
             "COMMAND": "[ERROR] Invalied Command -->",
             "MINMAXINT": "[ERROR] The parameter of -min or -max must be Number",
-            "NOVAL": "[ERROR] Value Not Satisfied For",
+            "NOVAL": "[ERROR] Value Not Satisfied -->",
             "SETUP": "[ERROR] Please Run \"./setup.sh\"",
             "SPACE": "\r[ERROR] Disk full !                                  ",
             "COMMANDS": """
@@ -39,9 +47,9 @@ Wordlist Generator, plenty of wordlists in your hand \n
 {L}commands{N}:
     iter         Iteration mode
     inter        Intractive mode
-    edit         Crop,join,replace strings in list
     search       Search for wordlist available in database
     get          Download wordlist from searched output
+    edit         Crop,join,replace strings in list
     console      li5tgen's console
     update       Update
     help         for more Info\n\nType "{T} help" for more info """.format(L=UU,N=NN,T="li5tgen"),
@@ -50,8 +58,8 @@ Wordlist Generator, plenty of wordlists in your hand \n
             "YEAR": "[ERROR] Too Advanced :)",
             "LENGTH": "[ERROR] The Length Of The DOB Must be 8 , DDMMYYYY ---> 17082001 ",
             "INT": "[ERROR] Integer Required",
-            "SEARCH": "[ERROR] KeyWord Not Given\n\nUSAGE:      {N} search <keyword>".format(N="li5tgen"),
-            "DOWNLOAD": "[ERROR] Id Not Given\n\nUSAGE:       {N} get <Id>".format(N="li5tgen"),
+            "SEARCH": "[ERROR] KeyWord Not Given\n\nUSAGE:      {N} search <keyword> <keyword>".format(N="li5tgen"),
+            "DOWNLOAD": "[ERROR] Id Not Given\n\nUSAGE:       {N} get <Id> <Id>".format(N="li5tgen"),
             "ID": "[ERROR] Invalied Id",
             "SEARCH_C": "search <KeyWord>",
             "DOWNLOAD_C": "get <Id>,<Id>",
@@ -80,9 +88,44 @@ Wordlist Generator, plenty of wordlists in your hand \n
 
         "FLAG": {
 
-            "MAIN": ("iter", "inter", "console", "edit", "search", "get", "help", "update"),
-            "EDIT": ("-i","--in", "-r", "--replace", "-c", "--crop", "-j", "--join", "-C", "--caps", "--help"),
-            "ITER": ("--char", "-min", "-max", "--out", "--minimum", "--maximum", "-o", "-c" )
+            "MAIN": ("iter",
+                "inter",
+                "console",
+                "edit",
+                "search",
+                "get",
+                "help",
+                "update"
+                ),
+            "EDIT": ("-i",
+                "--in",
+                "-r",
+                "--replace",
+                "-c",
+                "--crop",
+                "-j",
+                "--join",
+                "-C",
+                "--caps",
+                "--help"
+                ),
+            "ITER": ("--char",
+                "-min",
+                "-max",
+                "--out",
+                "--minimum",
+                "--maximum",
+                "-o",
+                "-c",
+                "char--",
+                "min-",
+                "max-",
+                "out--",
+                "minimum--",
+                "maximum--",
+                "o-",
+                "c-"
+                )
             },
 
 
@@ -210,75 +253,73 @@ Wordlist Generator, plenty of wordlists in your hand \n
 {U}                                       {N}""".format(U=UU,N=NN),
 
 
-        "HELP": """
-Wordlist Generator, you have planty of wordlists in your hand \n
-{L}USAGE{N}:   {T} [COMMAND] [FLAGS]
+        "HELP": """{L}Des{N}: Multi-purpose Wordlist Generator\n
+{L}Usage{N}:   {T} [COMMAND] [FLAGS]
 
 {L}commands{N}:
    iter     Iteration mode
    inter    Intractive mode
-   edit     Crop,join,replace strings
    search   Search for wordlist available in database
    get      Download wordlist from searched output
+   edit     Crop,join,replace strings in wordlist
    console  li5tgen's console
    update   Update
    help     This banner
 
 
+{L}iter{N}: {T} iter --char <ASCII> -min <INT> -max <INT> -out <file>
 
-{L}iter{N}: {T} iter --char <ASCII> -min <INT> -max <INT> -out <file>\n
-  {L}Flags{N}:
-   -c    --char      Strings
-   -min  --minimum   Minimum Length    Default set to 1
-   -max  --maximum   Maximum Length    Default set to 8
-   -o    --out       Wordlist name     Default set to wordlist.txt
-   -h    --help      Iter Help Banner
-
+     {L}Flags{N}:
+       -c    --char      Strings
+       -min  --minimum   Minimum Length    Default set to 1
+       -max  --maximum   Maximum Length    Default set to 8
+       -o    --out       Wordlist name     Default set to wordlist.txt
+       -h    --help      Iter Help Banner
+     {L}MirrorFlags{N}:
+       c-    char--     M/O --char
+       min-  minimum--  M/O --minimum
+       max-  maximum--  M/O --maximum
+       o-    out--      M/O --out
+     MirrorFlag is used to assign 1 value to 2 flags at same time.
+     It consider the value before MirrorFlag.
 
 {L}inter{N}:   {T} inter
-
 {L}search{N}:  {T} search <key_word>
-
-{L}get{N}:     {T} get <Id>,<Id>,..       (Use After Search)
-                     <Id>-<Id>
-
+{L}get{N}:     {T} get <Id>,<Id>,.. [or] <Id>-<Id> (Use After Search)
 {L}console{N}: {T} console
-
 {L}update{N}:  {T} update
-
 {L}edit{N}:    {T} edit [ --in <InputFile>                         ]
                       [ --crop <Pre({G}INT{N})>,<Suff({G}INT{N})>            ]
                       [ --join <Pre>,<Suff>                      ]
                       [ --replace <String>,<String>              ]
                       [ --caps                                   ]
+    {L}Flags{N}:
+       -i   --in       Input file
+       -c   --crop     Crop strings
+                       USAGE: --crop <Pre({G}INT{N}>,<Suff({G}INT{N})>
+                       {G}EG:{N} "hellow Sufix" {G}-c 1,2{N} {Y}Result->{N} "ellow Suf"
+       -r   --replace  Replace char in the string
+                       USAGE: --replace <String>,<String>
+                       {G}EG:{N} "heeeee" {G}-r e,i{N} {Y}Result->{N} "hiiiii"
+       -j   --join     Join Prefix or suffix
+                       USAGE: --join <Pre>,<Suff>
+                       {G}EG:{N} "google" {G}-j wWw.,.com{N} {Y}Result->{N} "wWw.google.com"
+       -C   --caps     Write all possiblitys of UpperCase
+                       {G}EG:{N} "fo" {G}-C{N} {Y}Result->{N} ["Fo","fO","FO","fo"]
 
-
-  {L}Flags{N}:
-    -i   --in       Input file
-    -c   --crop     Crop strings
-                    USAGE: --crop <Pre({G}INT{N}>,<Suff({G}INT{N})>
-                    {G}EG:{N} "hellow Sufix" {G}-c 1,2{N} {Y}Result->{N} "ellow Suf"
-    -r   --replace  Replace char in the string
-                    USAGE: --replace <String>,<String>
-                    {G}EG:{N} "heeeee" {G}-r e,i{N} {Y}Result->{N} "hiiiii"
-    -j   --join     Join Prefix or suffix
-                    USAGE: --join <Pre>,<Suff>
-                    {G}EG:{N} "google" {G}-j wWw.,.com{N} {Y}Result->{N} "wWw.google.com"
-    -C   --caps     Write all possiblitys of UpperCase
-                    {G}EG:{N} "fo" {G}-C{N} {Y}Result->{N} ["Fo","fO","FO","fo"]
-
-
-{L}Examples{N}:\n
+{L}Examples{N}:
     {T} iter --char 1*Ch4r3 -min 3 -max 9 --out MyWodlist.txt
-    {T} inter
-    {T} search password
-    {T} get 146,150,13
-    {T} console
+    {T} search password rockyou       {GR}# search for pattern "rockyou" and "password"{N}
+    {T} get 146,150,13                {GR}# download 146,150,13 only{N}
+    {T} get 11-20 23                  {GR}# download from 11 to 20 and 23{N}
     {T} edit -i input.txt --replace z,e --caps
     {T} edit -i input2.txt --crop ,4 --join ,it
 
-----------@Madhava-mng    https://github.com/Madhava-mng/li5tgen ----------
-""".format(T="li5tgen", L=UU, N=NN, G=BR, Y=YY),
+    {L}MirrorFlags{N}:
+       {T} iter --char str134\$ -min 5 max- --out MyWordlist2.txt
+       {T} iter ops\! char-- 6 max- -o wl.txt
+
+----------@Madhava-mng    https://github.com/Madhava-mng/li5tgen ----------""".format(T="li5tgen", L=UU, N=NN, G=BR, Y=YY, GR=GR),
 
 
     "EDITHELP": """
@@ -289,8 +330,7 @@ Wordlist Generator, you have planty of wordlists in your hand \n
       -r      --replace   Replace char in the string
       -j      --join      Join Prefix or suffix
       -C      --caps      Write all possiblitys of UpperCase
-              --help      This Banner
-    """.format(L=UU,N=NN,G=BR,T="li5tgen"),
+              --help      This Banner""".format(L=UU,N=NN,G=BR,T="li5tgen"),
 
 
     "HELP_ITER": """\n
@@ -300,8 +340,7 @@ Wordlist Generator, you have planty of wordlists in your hand \n
       -min  --minimum   Minimum Length    Default set to 1
       -max  --maximum   Maximum Length    Default set to 8
       -o    --out       Wordlist name     Default set to wordlist.txt
-      -h    --help      This Help Banner
-""".format(T="li5tgen", L=UU, N=NN)
+      -h    --help      This Banner""".format(T="li5tgen", L=UU, N=NN)
         }
 
 def Status(length, count):
