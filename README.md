@@ -4,7 +4,7 @@ worlist generator for all the things
 
 ## Installation
 ```bash 
-~# apt install git
+~# apt install git python3 python3-pip
 ~$ git clone https://github.com/Madhava-mng/li5tgen
 ~$ cd li5tgen
 ~/li5tgen$ ./setup.sh
