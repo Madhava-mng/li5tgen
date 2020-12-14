@@ -1,6 +1,17 @@
 # li5tgen
-worlist generator for all the things
+worlist generator for all the things.
+* mini search engine for wordlist
 
+## Requirment
+<ul>
+<li>Packages<ul>
+<li>python3.9</li>
+<li>python3-pip</li></ul>
+<li>pip<ul>
+<li>requests</li></ul>
+</ul>
+
+* linux based environment
 
 ## Installation
 ```bash 
