@@ -8,7 +8,7 @@ from lib.core import Element
 from threading import Thread
 from lib.core import RAND,NN
 from time import strftime as date
-from lib.cwd import update
+from lib.cwd import update,cwd
 
 def start(URL, Id):
     for i in range(len(URL)):
@@ -57,5 +57,18 @@ def Download(ID):
             print(Element["ERROR"]["SPACE"])
     return
 
-if int(date("%d"))%3 == 0:
-    update()
+if int(date("%d"))%2 == 0:
+    try:
+        with open(cwd+"/.li5tgen", "r") as buff:
+            if buff.read() != date("%d"):
+                with open(cwd+"/.li5tgen", "w") as buff2:
+                    buff2.write(date("%d"))
+                    update()
+                buff.close()
+        buff.close()
+    except:
+        update()
+        with open(cwd+"/.li5tgen", "w") as buff:
+            buff.write(date("%d"))
+        buff.close()
+

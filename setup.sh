@@ -5,8 +5,8 @@
 cwd(){
     echo "#!/bin/env python3
 from os import system
-def update():
-    cwd = '`pwd`'
+cwd = '`pwd`'
+def update(cwd=cwd):
     system('cd '+cwd+';'+cwd+'/update.sh') "> bin/lib/cwd.py
 }
 
