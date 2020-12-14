@@ -11,29 +11,13 @@ def update(cwd=cwd):
 }
 
 package(){
-    which pkg
-    if [ $? -ne 1 ];then
-        pkg install python -y
+    which python3
+    if [ $? -ne 0 ];then
+        echo "[!] python3 Not Installed"
     fi
-    which apt
-    if [ $? -ne 1 ];then
-        sudo apt install python3 python3-pip -y 2>/dev/null
-    fi
-    which yum
-    if [ $? -ne 1 ];then
-        sudo yum install python3 python3-pip
-    fi
-    which pacman
-    if [ $? -ne 1 ];then
-        sudo pacman -Sy python3 python3-pip
-    fi
-    which snap
-    if [ $? -ne 1 ];then
-        sudo snap install python3 python3-pip
-    fi
-    which apk
-    if [ $? -ne 1 ];then
-        sudo apk add python3 python3-pip
+    which pip3
+    if [ $? -ne 0 ];then
+        echo "[!] python3-pip Not Installed"
     fi
 }
 
