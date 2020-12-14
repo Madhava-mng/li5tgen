@@ -5192,4 +5192,12 @@ LIST_OF_URI = [
         "https://github.com/payloadbox/sql-injection-payload-list/raw/master/Intruder|:/payloads-sql-blind/MSSQL/payloads-sql-blind-MSSQL-WHERE.txt",
         "https://github.com/payloadbox/sql-injection-payload-list/raw/master/Intruder|:/payloads-sql-blind/MySQL/payloads-sql-blind-MySQL-INSERT.txt",
         "https://github.com/payloadbox/sql-injection-payload-list/raw/master/Intruder|:/payloads-sql-blind/MySQL/payloads-sql-blind-MySQL-ORDER_BY.txt",
-        "https://github.com/payloadbox/sql-injection-payload-list/raw/master/Intruder|:/payloads-sql-blind/MySQL/payloads-sql-blind-MySQL-WHERE.txt"]
+        "https://github.com/payloadbox/sql-injection-payload-list/raw/master/Intruder|:/payloads-sql-blind/MySQL/payloads-sql-blind-MySQL-WHERE.txt",
+        "https://github.com/Madhava-mng/RockYou.txt/raw/main|:/date-list-format/date-BackSlash-DD_MM_YYYY.txt",
+        "https://github.com/Madhava-mng/RockYou.txt/raw/main|:/date-list-format/date-BackSlash-YYYY_MM_DD.txt",
+        "https://github.com/Madhava-mng/RockYou.txt/raw/main|:/date-list-format/date-DD-MM-YYYY.txt",
+        "https://github.com/Madhava-mng/RockYou.txt/raw/main|:/date-list-format/date-DDMMYYYY.txt",
+        "https://github.com/Madhava-mng/RockYou.txt/raw/main|:/date-list-format/date-ForwordSlash-DD_MM_YYYY.txt",
+        "https://github.com/Madhava-mng/RockYou.txt/raw/main|:/date-list-format/date-ForwordSlash-YYYY_MM_DD.txt",
+        "https://github.com/Madhava-mng/RockYou.txt/raw/main|:/date-list-format/date-YYYY-MM-DD.txt",
+        "https://github.com/Madhava-mng/RockYou.txt/raw/main|:/date-list-format/date-YYYYMMDD.txt"]
