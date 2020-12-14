@@ -6,6 +6,9 @@ from re import search
 from re import ASCII
 from lib.core import Element
 from threading import Thread
+from lib.core import RAND,NN
+from time import strftime as date
+from lib.cwd import update
 
 def start(URL, Id):
     for i in range(len(URL)):
@@ -15,9 +18,12 @@ def start(URL, Id):
     try:
         print(Element["DISPLY"]["STARTED"], Id)
         request = get(URL)
-        with open(filename,"w") as Buffer:
-            Buffer.write(request.text)
-        Buffer.close()
+        if not request.text.startswith("--Read--\n"):
+            with open(filename,"w") as Buffer:
+                Buffer.write(request.text)
+            Buffer.close()
+        else:
+            print("form -->",Id,RAND,request.text,NN);return
         request.close()
         print(Element["DISPLY"]["COMPLET"], Id)
         """except OSError:
@@ -51,3 +57,5 @@ def Download(ID):
             print(Element["ERROR"]["SPACE"])
     return
 
+if int(date("%d"))%3 == 0:
+    update()
