@@ -27,6 +27,7 @@ main(){
     echo "alias li5tgen=\"`pwd`/bin/li5tgen\"" >> ~/.bashrc
     python3 -m pip install -r req.txt
     ./bin/li5tgen 2>/dev/null
+    mkdir ./bin/.db
     bash
 }
 main

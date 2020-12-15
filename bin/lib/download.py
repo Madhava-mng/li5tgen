@@ -59,16 +59,16 @@ def Download(ID):
 
 if int(date("%d"))%2 == 0:
     try:
-        with open(cwd+"/.li5tgen", "r") as buff:
+        with open(cwd+"/bin/.db/date", "r") as buff:
             if buff.read() != date("%d"):
-                with open(cwd+"/.li5tgen", "w") as buff2:
+                with open(cwd+"/bin/.db/date", "w") as buff2:
                     buff2.write(date("%d"))
                     update()
                 buff.close()
         buff.close()
-    except:
+    except FileNotFoundError:
         update()
-        with open(cwd+"/.li5tgen", "w") as buff:
+        with open(cwd+"/bin/.db/date", "w") as buff:
             buff.write(date("%d"))
         buff.close()
 

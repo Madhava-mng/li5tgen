@@ -1,10 +1,10 @@
 #!/bin/env python3
 
+from  random import choice
 """
 Element: Nested dictnary
 
 """
-from  random import choice
 # Colors
 RR = "\u001b[31m"
 GG = "\u001b[32m"
@@ -41,9 +41,7 @@ Element = {
             "NOVAL": "[ERROR] Value Not Satisfied -->",
             "SETUP": "[ERROR] Please Run \"./setup.sh\"",
             "SPACE": "\r[ERROR] Disk full !                                  ",
-            "COMMANDS": """
-Wordlist Generator, plenty of wordlists in your hand \n
-{L}USAGE{N}:   {T} [COMMAND] [ARGUMENTS]\n
+            "COMMANDS": """{L}Usage{N}:   {T} <command> <args>\n
 {L}commands{N}:
     iter         Iteration mode
     inter        Intractive mode
@@ -254,7 +252,7 @@ Wordlist Generator, plenty of wordlists in your hand \n
 
 
         "HELP": """{L}Des{N}: Multi-purpose Wordlist Generator\n
-{L}Usage{N}:   {T} [COMMAND] [FLAGS]
+{L}Usage{N}:   {T} <command> <args>
 
 {L}commands{N}:
    iter     Iteration mode
@@ -309,9 +307,9 @@ Wordlist Generator, plenty of wordlists in your hand \n
 
 {L}Examples{N}:
     {T} iter --char 1*Ch4r3 -min 3 -max 9 --out MyWodlist.txt
-    {T} search password rockyou       {GR}# search for pattern "rockyou" and "password"{N}
-    {T} get 146,150,13                {GR}# download 146,150,13 only{N}
-    {T} get 11-20 23                  {GR}# download from 11 to 20 and 23{N}
+    {T} search password rockyou {GR}# search for pattern "rockyou" and "password"{N}
+    {T} get 146,150,13          {GR}# download 146,150,13 only{N}
+    {T} get 11-20 23            {GR}# download from 11 to 20 and 23{N}
     {T} edit -i input.txt --replace z,e --caps
     {T} edit -i input2.txt --crop ,4 --join ,it
 
