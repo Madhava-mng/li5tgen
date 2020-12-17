@@ -126,6 +126,8 @@ Element = {
                 )
             },
 
+        "DB_NALL": "/bin/.db/.d_cal",
+        "KEYS": "fuywegfiwww3766",
 
         "LIST": {
             "COMMON": [

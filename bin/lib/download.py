@@ -7,7 +7,8 @@ from re import ASCII
 from lib.core import Element
 from threading import Thread
 from lib.core import RAND,NN
-from time import strftime as date
+from lib.chiffrement import *
+from time import strftime as nall
 from lib.cwd import update,cwd
 
 def start(URL, Id):
@@ -57,18 +58,18 @@ def Download(ID):
             print(Element["ERROR"]["SPACE"])
     return
 
-if int(date("%d"))%2 == 0:
+if int(nall("%d"))%2 == 0:
     try:
-        with open(cwd+"/bin/.db/date", "r") as buff:
-            if buff.read() != date("%d"):
-                with open(cwd+"/bin/.db/date", "w") as buff2:
-                    buff2.write(date("%d"))
+        with open(cwd+Element["DB_NALL"], "r") as buff:
+            if dec(buff.read()) != nall("%d"):
+                with open(cwd+Element["DB_NALL"], "w") as buff2:
+                    buff2.write(enc(nall("%d")+Element["KEYS"]))
                     update()
                 buff.close()
         buff.close()
     except FileNotFoundError:
         update()
-        with open(cwd+"/bin/.db/date", "w") as buff:
-            buff.write(date("%d"))
+        with open(cwd+Element["DB_NALL"], "w") as buff:
+            buff.write(enc(nall("%d")+Element['KEYS']))
         buff.close()
 
