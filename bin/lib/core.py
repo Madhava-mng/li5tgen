@@ -277,10 +277,10 @@ Element = {
 {L}iter{N}: {T} iter --char <ASCII> -min <INT> -max <INT> --out <file>
 
      {L}Flags{N}:
-       -c    --char      Strings           Default set to {CHAR}
-       -min  --minimum   Minimum Length    Default set to {MIN}
-       -max  --maximum   Maximum Length    Default set to {MAX}
-       -o    --out       Wordlist name     Default set to {OUT}
+       -c    --char      Strings               set to {CHAR}
+       -min  --minimum   Minimum Length        set to {MIN}
+       -max  --maximum   Maximum Length        set to {MAX}
+       -o    --out       Wordlist name         set to {OUT}
        -h    --help      Iter Help Banner
      {L}MirrorFlags{N}:
        c-    char--     M/O --char
@@ -353,10 +353,10 @@ Element = {
     "HELP_ITER": """\n
 {L}iter{N}: {T} iter --char <ASCII> -min <NUMBER> -max <NUMBER> --out <file>\n
     {L}Flags{N}:
-      -c    --char      Strings           Default set to {CHAR}
-      -min  --minimum   Minimum Length    Default set to {MIN}
-      -max  --maximum   Maximum Length    Default set to {MAX}
-      -o    --out       Wordlist name     Default set to {OUT}
+      -c    --char      Strings            set to {CHAR}
+      -min  --minimum   Minimum Length     set to {MIN}
+      -max  --maximum   Maximum Length     set to {MAX}
+      -o    --out       Wordlist name      set to {OUT}
       -h    --help      This Banner""".format(T="li5tgen",
               L=UU,
               N=NN,
