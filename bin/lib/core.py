@@ -125,7 +125,7 @@ Element = {
                 "minimum--",
                 "maximum--",
                 "o-",
-                "c-"
+                "c-",
                 "-h",
                 "--help"
                 )
@@ -263,15 +263,15 @@ Element = {
 {L}Usage{N}:   {T} <command> <args>
 
 {L}commands{N}:
-   iter     Iteration mode
-   inter    Intractive mode
-   search   Search for wordlist available in database
-   get      Download wordlist from searched output
-   edit     Crop,join,replace strings in wordlist
-   console  li5tgen's console
-   update   Update
-   reset    Reset to Default
-   help     This banner
+   iter                 Iteration mode
+   inter  <arguments>   Intractive mode
+   search <keyword>     Search for wordlist available in database
+   get    <Id>          Download wordlist from searched output
+   edit   <arguments>   Crop,join,replace strings in wordlist
+   console              li5tgen's console
+   update               Update
+   reset                Reset to Default
+   help                 This banner
 
 
 {L}iter{N}: {T} iter --char <ASCII> -min <INT> -max <INT> --out <file>
@@ -281,7 +281,7 @@ Element = {
        -min  --minimum   Minimum Length    Default set to {MIN}
        -max  --maximum   Maximum Length    Default set to {MAX}
        -o    --out       Wordlist name     Default set to {OUT}
-             --help      Iter Help Banner
+       -h    --help      Iter Help Banner
      {L}MirrorFlags{N}:
        c-    char--     M/O --char
        min-  minimum--  M/O --minimum
@@ -357,7 +357,7 @@ Element = {
       -min  --minimum   Minimum Length    Default set to {MIN}
       -max  --maximum   Maximum Length    Default set to {MAX}
       -o    --out       Wordlist name     Default set to {OUT}
-            --help      This Banner""".format(T="li5tgen",
+      -h    --help      This Banner""".format(T="li5tgen",
               L=UU,
               N=NN,
               MIN = store("/bin/.db/.min_store", "1"),
