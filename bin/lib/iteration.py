@@ -46,11 +46,11 @@ def Iter(char, MIN, MAX, File):
                 return
         if char != "":
             if MIN < MAX or MIN == MAX:
-                Iteration("".join(set(char)), MIN, MAX, File)
                 write("/bin/.db/.min_store", str(MIN))
                 write("/bin/.db/.max_store", str(MAX))
                 write("/bin/.db/.out_store", File)
                 write("/bin/.db/.char_store", char)
+                Iteration("".join(set(char)), MIN, MAX, File)
             else:
                 print(Element["ERROR"]["MIN"])
         else:
