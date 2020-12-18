@@ -9,6 +9,8 @@ from lib.console import li5tgen
 from lib.edit import main_edit
 from lib.cwd import update
 from lib.banner import BANNER
+from lib.store import *
+from lib.reset import reset
 
 
 def console():
@@ -18,10 +20,10 @@ def console():
         console()
 
 def check(LIST):
-    CHAR=""
-    MIN = 1
-    MAX = 8
-    OUT = "wordlist.txt"
+    CHAR=  store("/bin/.db/.char_store", '12345678*')
+    MIN = store("/bin/.db/.min_store", '1')
+    MAX = store("/bin/.db/.max_store", '8')
+    OUT = store("/bin/.db/.out_store", "wordlist.txt")
     FILENAME = ""
 
     try:
@@ -78,6 +80,8 @@ def check(LIST):
             elif LIST[1] == "console":
                 print(BANNER)
                 console()
+            elif LIST[1] == "reset":
+                reset()
             elif LIST[1] == "edit":
                 for i in range(len(LIST)):
                     if LIST[i].startswith("-"):

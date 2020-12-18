@@ -7,6 +7,7 @@ from lib.iter_console import Iter_console
 from lib.core import Dispay_option
 from os import system
 from lib.cwd import update
+from lib.reset import reset
 
 
 
@@ -31,6 +32,8 @@ class li5tgen(cmd.Cmd):
         update()
     def do_help(self,value):
         print(Element["CONSOLEHELP"])
+    def do_reset(self, value):
+        reset()
 
     def do_options(self,value):
         Dispay_option(

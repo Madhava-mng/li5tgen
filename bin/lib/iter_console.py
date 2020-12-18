@@ -7,13 +7,16 @@ from lib.Search import Search
 from lib.download import Download
 from lib.cwd import update
 from os import system
+from lib.reset import reset
+#from lib.cwd import cwd
+from lib.store import store, write
 
 class Iter_console(cmd.Cmd):
     prompt = Element["ITERPROMPT"]
-    MIN = 1
-    MAX = 8
-    CHAR = "12345ab*"
-    OUT = "wordlist.txt"
+    MIN = store("/bin/.db/.min_store", '1')
+    MAX = store("/bin/.db/.max_store", '8')
+    CHAR = store("/bin/.db/.char_store", "12345678*")
+    OUT = store("/bin/.db/.out_store", "wordlist.txt")
     SET_LIST = ["MIN","MAX","CHARS", "OUT"]
 
     def do_options(self, value):
@@ -29,12 +32,16 @@ class Iter_console(cmd.Cmd):
             values = value.split()
             if values[0].upper() == "MIN":
                 self.MIN = values[1]
+                write("/bin/.db/.min_store", values[1])
             elif values[0].upper() == "MAX":
                 self.MAX = values[1]
+                write("/bin/.db/.max_store", values[1])
             elif values[0].upper() == "CHARS":
                 self.CHAR = values[1]
+                write("/bin/.db/.char_store", values[1])
             elif values[0].upper() == "OUT":
                 self.OUT = values[1]
+                write("/bin/.db/.out_store", values[1])
             print("{} --> {}".format(values[0],values[1]))
         except:
             print("USAGE: \tset <OPTION> <VALUE>")
@@ -48,6 +55,8 @@ class Iter_console(cmd.Cmd):
 
     def do_run(self, value):
         Iter(self.CHAR, self.MIN, self.MAX, self.OUT)
+    def do_reset(self, value):
+        reset()
     def do_update(self, value):
         update()
     def do_help(self,value):

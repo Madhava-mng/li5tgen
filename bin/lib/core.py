@@ -1,6 +1,7 @@
 #!/bin/env python3
 
 from  random import choice
+from lib.store import *
 """
 Element: Nested dictnary
 
@@ -50,6 +51,7 @@ Element = {
     edit         Crop,join,replace strings in list
     console      li5tgen's console
     update       Update
+    reset        Reset to default
     help         for more Info\n\nType "{T} help" for more info """.format(L=UU,N=NN,T="li5tgen"),
             "DATE": "[ERROR] The Range Of Date 1-31",
             "MONTH": "[ERROR] The Range Of Month 1-12",
@@ -93,7 +95,8 @@ Element = {
                 "search",
                 "get",
                 "help",
-                "update"
+                "update",
+                "reset"
                 ),
             "EDIT": ("-i",
                 "--in",
@@ -123,6 +126,8 @@ Element = {
                 "maximum--",
                 "o-",
                 "c-"
+                "-h",
+                "--help"
                 )
             },
 
@@ -240,6 +245,7 @@ Element = {
     set       Set values
     options   Print available options
     run       Execute module
+    reset     Reset to Default
 {U}                                       {N}
    {U}System{N}\n
     ls        List files and directory
@@ -264,17 +270,18 @@ Element = {
    edit     Crop,join,replace strings in wordlist
    console  li5tgen's console
    update   Update
+   reset    Reset to Default
    help     This banner
 
 
-{L}iter{N}: {T} iter --char <ASCII> -min <INT> -max <INT> -out <file>
+{L}iter{N}: {T} iter --char <ASCII> -min <INT> -max <INT> --out <file>
 
      {L}Flags{N}:
-       -c    --char      Strings
-       -min  --minimum   Minimum Length    Default set to 1
-       -max  --maximum   Maximum Length    Default set to 8
-       -o    --out       Wordlist name     Default set to wordlist.txt
-       -h    --help      Iter Help Banner
+       -c    --char      Strings           Default set to {CHAR}
+       -min  --minimum   Minimum Length    Default set to {MIN}
+       -max  --maximum   Maximum Length    Default set to {MAX}
+       -o    --out       Wordlist name     Default set to {OUT}
+             --help      Iter Help Banner
      {L}MirrorFlags{N}:
        c-    char--     M/O --char
        min-  minimum--  M/O --minimum
@@ -288,6 +295,7 @@ Element = {
 {L}get{N}:     {T} get <Id>,<Id>,.. [or] <Id>-<Id> (Use After Search)
 {L}console{N}: {T} console
 {L}update{N}:  {T} update
+{L}reset{N}:   {T} reset
 {L}edit{N}:    {T} edit [ --in <InputFile>                         ]
                       [ --crop <Pre({G}INT{N})>,<Suff({G}INT{N})>            ]
                       [ --join <Pre>,<Suff>                      ]
@@ -319,7 +327,16 @@ Element = {
        {T} iter --char str134\$ -min 5 max- --out MyWordlist2.txt
        {T} iter ops\! char-- 6 max- -o wl.txt
 
-----------@Madhava-mng    https://github.com/Madhava-mng/li5tgen ----------""".format(T="li5tgen", L=UU, N=NN, G=BR, Y=YY, GR=GR),
+----------@Madhava-mng    https://github.com/Madhava-mng/li5tgen ----------""".format(T="li5tgen",
+        L=UU,
+        N=NN,
+        G=BR,
+        Y=YY,
+        GR=GR,
+        MIN = store("/bin/.db/.min_store", "1"),
+        MAX = store("/bin/.db/.max_store", "8"),
+        CHAR = store("/bin/.db/.char_store", "12345678*"),
+        OUT = store("/bin/.db/.out_store", "wordlist.txt")),
 
 
     "EDITHELP": """
@@ -336,11 +353,17 @@ Element = {
     "HELP_ITER": """\n
 {L}iter{N}: {T} iter --char <ASCII> -min <NUMBER> -max <NUMBER> --out <file>\n
     {L}Flags{N}:
-      -c    --char      Strings
-      -min  --minimum   Minimum Length    Default set to 1
-      -max  --maximum   Maximum Length    Default set to 8
-      -o    --out       Wordlist name     Default set to wordlist.txt
-      -h    --help      This Banner""".format(T="li5tgen", L=UU, N=NN)
+      -c    --char      Strings           Default set to {CHAR}
+      -min  --minimum   Minimum Length    Default set to {MIN}
+      -max  --maximum   Maximum Length    Default set to {MAX}
+      -o    --out       Wordlist name     Default set to {OUT}
+            --help      This Banner""".format(T="li5tgen",
+              L=UU,
+              N=NN,
+              MIN = store("/bin/.db/.min_store", "1"),
+              CHAR = store("/bin/.db/.char_store", "12345678*"),
+              MAX = store("/bin/.db/.max_store", "8"),
+              OUT = store("/bin/.db/.out_store", "wordlist.txt"))
         }
 
 def Status(length, count):

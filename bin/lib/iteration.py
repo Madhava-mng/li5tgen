@@ -10,6 +10,7 @@
 from itertools import product
 from lib.core import Element
 from lib.core import Status
+from lib.store import write
 import time
 
 
@@ -46,6 +47,10 @@ def Iter(char, MIN, MAX, File):
         if char != "":
             if MIN < MAX or MIN == MAX:
                 Iteration("".join(set(char)), MIN, MAX, File)
+                write("/bin/.db/.min_store", str(MIN))
+                write("/bin/.db/.max_store", str(MAX))
+                write("/bin/.db/.out_store", File)
+                write("/bin/.db/.char_store", char)
             else:
                 print(Element["ERROR"]["MIN"])
         else:
