@@ -20,7 +20,7 @@ def console():
         console()
 
 def check(LIST):
-    CHAR=  store("/bin/.db/.char_store", '12345678*')
+    CHAR= ""
     MIN = store("/bin/.db/.min_store", '1')
     MAX = store("/bin/.db/.max_store", '8')
     OUT = store("/bin/.db/.out_store", "wordlist.txt")

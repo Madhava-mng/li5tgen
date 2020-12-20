@@ -44,15 +44,15 @@ Element = {
             "SPACE": "\r[ERROR] Disk full !                                  ",
             "COMMANDS": """{L}Usage{N}:   {T} <command> <args>\n
 {L}commands{N}:
-    iter         Iteration mode
-    inter        Intractive mode
-    search       Search for wordlist available in database
-    get          Download wordlist from searched output
-    edit         Crop,join,replace strings in list
-    console      li5tgen's console
-    update       Update
-    reset        Reset to default
-    help         for more Info\n\nType "{T} help" for more info """.format(L=UU,N=NN,T="li5tgen"),
+    iter  <arguments>   Iteration mode
+    inter               Intractive mode
+    search <keyword>    Search for wordlist available in database
+    get    <Id>         Download wordlist from searched output
+    edit   <arguments>  Crop,join,replace strings in list
+    console             li5tgen's console
+    update              Update
+    reset               Reset to default
+    help                for more Info\n\nType "{T} help" for more info """.format(L=UU,N=NN,T="li5tgen"),
             "DATE": "[ERROR] The Range Of Date 1-31",
             "MONTH": "[ERROR] The Range Of Month 1-12",
             "YEAR": "[ERROR] Too Advanced :)",
@@ -203,7 +203,7 @@ Element = {
                     "s":["$","&"],
                     "o":["ø","*"],
                     "n":["^","~"],
-                    "c":["(","[","{","<"],
+                    "c":["(","["],
                     "z":["%","&","?"],
                     "1":["!","|"],
                     "2":["@","**"],
@@ -282,7 +282,7 @@ Element = {
 {L}iter{N}: {T} iter --char <ASCII> -min <INT> -max <INT> --out <file>
 
      {L}Flags{N}:
-       -c    --char      Strings               set to {CHAR}
+       -c    --char      Strings ASCII
        -min  --minimum   Minimum Length        set to {MIN}
        -max  --maximum   Maximum Length        set to {MAX}
        -o    --out       Wordlist name         set to {OUT}
@@ -340,7 +340,6 @@ Element = {
         GR=GR,
         MIN = store("/bin/.db/.min_store", "1"),
         MAX = store("/bin/.db/.max_store", "8"),
-        CHAR = store("/bin/.db/.char_store", "12345678*"),
         OUT = store("/bin/.db/.out_store", "wordlist.txt")),
 
 
@@ -358,7 +357,7 @@ Element = {
     "HELP_ITER": """\n
 {L}iter{N}: {T} iter --char <ASCII> -min <NUMBER> -max <NUMBER> --out <file>\n
     {L}Flags{N}:
-      -c    --char      Strings            set to {CHAR}
+      -c    --char      Strings ASCII
       -min  --minimum   Minimum Length     set to {MIN}
       -max  --maximum   Maximum Length     set to {MAX}
       -o    --out       Wordlist name      set to {OUT}
@@ -366,7 +365,6 @@ Element = {
               L=UU,
               N=NN,
               MIN = store("/bin/.db/.min_store", "1"),
-              CHAR = store("/bin/.db/.char_store", "12345678*"),
               MAX = store("/bin/.db/.max_store", "8"),
               OUT = store("/bin/.db/.out_store", "wordlist.txt"))
         }
