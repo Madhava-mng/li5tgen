@@ -82,7 +82,12 @@ Element = {
             "COMPLET": "[SUCCESS] Downloaded Successfully -->",
             "SHOW": "\n\tshow <command>\n\tcommand: [list,command]\n",
             "BACK": "[HOME] Already Satisfyed",
-            "ITERCON": """HINT: [ options, set, run ]"""
+            "ITERCON": """HINT: [ options, set, run ]""",
+            "INTCONV": "[APPENDING] Digit",
+            "SPLCONV": "[APPENDING] SpicalChar",
+            "UPPCONV": "[APPENDING] UpperCase",
+            "STARTL": "[STARTED] To Write File -->",
+            "DUPLICATE": "[REMOVING] Junk"
             },
 
 

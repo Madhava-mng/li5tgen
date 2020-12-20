@@ -47,6 +47,7 @@ def dob():  #[][]][]][][][][][][][]]
     return 0
 
 def Write(_list, _file):
+    print(Element["DISPLY"]["STARTL"], _file)
     with open(_file, "a") as Buffer:
         for i in _list:
             for j in _list:
@@ -55,7 +56,7 @@ def Write(_list, _file):
         Buffer.close()
     return 0
 
-def Inter(list_):
+def Inter(list_=[]):
 #   tmp2=[]
 #   for i in Element["LIST"]["NUMBER"]:
 #       for j in list_:
@@ -88,11 +89,14 @@ def Inter(list_):
                 break
     t=[]
     if UPPER in Element["LIST"]["YES"]:
+        print(Element["DISPLY"]["UPPCONV"])
         for i in list_:
-            t += sorted(map(''.join, product(*((c.upper(), c.lower()) for c in str(i)))))
+            if not i.isdigit():
+                t += sorted(map(''.join, product(*((c.upper(), c.lower()) for c in str(i)))))
     list_ += t
 
     if SPECIAL in Element["LIST"]["YES"]:
+        print(Element["DISPLY"]["SPLCONV"])
         for i in Element["LIST"]["SPECIAL"]:
             for j in list_:
                 for k in range(len(j)):
@@ -101,6 +105,7 @@ def Inter(list_):
                             list_.append(j.replace(j[k],l))
 
     if NUMBER in Element["LIST"]["YES"]:
+        print(Element["DISPLY"]["INTCONV"])
         for i in Element["LIST"]["NUMBER"]:
             for j in list_:
                 for k in range(len(j)):
@@ -110,6 +115,7 @@ def Inter(list_):
 
 
     tmplist=[]
+    print(Element["DISPLY"]["DUPLICATE"])
     for i in list_:
         if i not in tmplist:
             tmplist.append(i)
