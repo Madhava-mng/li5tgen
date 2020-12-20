@@ -55,7 +55,7 @@ def Write(_list, _file):
         Buffer.close()
     return 0
 
-def Inter(list_ = ["hellow", "hiii"]):
+def Inter(list_):
 #   tmp2=[]
 #   for i in Element["LIST"]["NUMBER"]:
 #       for j in list_:
