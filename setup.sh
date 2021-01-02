@@ -24,7 +24,10 @@ package(){
 main(){
     cwd
     package
+    cat ~/.bashrc | grep -v li5tgen >> ./.tmp
+    cp ./.tmp ~/.bashrc
     echo "alias li5tgen=\"`pwd`/bin/li5tgen\"" >> ~/.bashrc
+    rm ./.tmp
     python3 -m pip install -r req.txt
     ./bin/li5tgen 2>/dev/null
     mkdir ./bin/.db
