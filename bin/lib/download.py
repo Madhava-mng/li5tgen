@@ -61,15 +61,15 @@ def Download(ID):
 if int(nall("%d"))%2 == 0:
     try:
         with open(cwd+Element["DB_NALL"], "r") as buff:
-            if dec(buff.read()) != nall("%d"):
+            if buff.read() != nall("%d"):
                 with open(cwd+Element["DB_NALL"], "w") as buff2:
-                    buff2.write(enc(nall("%d")+Element["KEYS"]))
+                    buff2.write(nall("%d"))
                     update()
-                buff.close()
+                buff2.close()
         buff.close()
     except FileNotFoundError:
         update()
         with open(cwd+Element["DB_NALL"], "w") as buff:
-            buff.write(enc(nall("%d")+Element['KEYS']))
+            buff.write(nall("%d"))
         buff.close()
 
