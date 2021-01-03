@@ -7,7 +7,6 @@ from re import ASCII
 from lib.core import Element
 from threading import Thread
 from lib.core import RAND,NN
-from lib.chiffrement import *
 from time import strftime as nall
 from lib.cwd import update,cwd
 
