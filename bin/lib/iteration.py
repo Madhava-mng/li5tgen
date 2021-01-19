@@ -32,7 +32,7 @@ def Iteration(char, MIN , MAX , File, C = 0):
                 if Time != time.time()//1:
                     Time+=1;avareg = C-avareg
                     print("\r[{:.0f}%][{} line/sec][{}/{}]         ".format((C/Total)*100,avareg,Total-C,Total),end='');avareg=C
-    print(Element["DISPLY"]["DONE"])
+    print(Element["DISPLY"]["DONE"], "-->", File,"-->", Total,"l" )
     Buffer.close()
     return 0
 

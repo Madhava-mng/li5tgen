@@ -76,7 +76,7 @@ Element = {
 
             "^C": "\r[Recived] Keyboard Interrupt                      ",
             "DOB": "[ Note: The Length Of The DOB Must be 8 , Eg: 17082001 ]",
-            "DONE": "\r[100%] Fineshed                               ",
+            "DONE": "\r[100%] Created Successfully        ",
             "SINFO": "[Free Type] Note: simply type \"{G}:q{N}\" to go back".format(G=GG,N=NN),
             "STARTED": "[STARTED] Request Sent -->",
             "COMPLET": "[SUCCESS] Downloaded Successfully -->",
