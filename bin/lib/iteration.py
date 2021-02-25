@@ -31,8 +31,25 @@ def Iteration(char, MIN , MAX , File, C = 0):
                 Time_bal=(C/Total)*100
                 if Time != time.time()//1:
                     Time+=1;avareg = C-avareg
-                    print("\r[{:.0f}%][{} line/sec][{}/{}]         ".format((C/Total)*100,avareg,Total-C,Total),end='');avareg=C
-    print(Element["DISPLY"]["DONE"], "-->", File,"-->", Total,"l" )
+                    print(Element["DISPLY"]["STATUS_ITER"].format(
+                        "".join(j),
+                        (C/Total)*100,
+                        avareg,
+                        len(j),
+                        C,
+                        Total-C,
+                        Total,
+                        C = "\u001b[32m"
+                        ))
+                    avareg=C
+    print(Element["DISPLY"]["STATUS_ITER_FINAL"].format(
+        len(j),
+        C,
+        C,
+        time.strftime("%a %D %H:%M:%S"),
+        C = "\u001b[32m"
+        ))
+    print(Element["DISPLY"]["DONE"])
     Buffer.close()
     return 0
 
@@ -50,7 +67,16 @@ def Iter(char, MIN, MAX, File):
                 write("/bin/.db/.max_store", str(MAX))
                 write("/bin/.db/.out_store", File)
                 write("/bin/.db/.char_store", char)
-                Iteration("".join(set(char)), MIN, MAX, File)
+                print(Element["DISPLY"]["STATUS_ITER_START"].format(
+                    ",".join(sorted(set(char))),
+                    MIN,
+                    MAX,
+                    File,
+                    time.strftime("%a %D %H:%M:%S"),
+                    "\n"*5,
+                    C = "\u001b[32m"
+                    ))
+                Iteration("".join(sorted(set(char))), MIN, MAX, File)
             else:
                 print(Element["ERROR"]["MIN"])
         else:
