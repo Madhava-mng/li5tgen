@@ -11,6 +11,7 @@ from itertools import product
 from lib.core import Element
 from lib.core import Status
 from lib.store import write
+from pyloadart import hash_
 import time
 
 
@@ -42,6 +43,14 @@ def Iteration(char, MIN , MAX , File, C = 0):
                         C = "\u001b[32m"
                         ))
                     avareg=C
+                    hash_(
+                            C,
+                            Total,
+                            color="c",
+                            end_with="()",
+                            number=True,
+                            unfilled=".")
+                    #loop.box(post_msg="", interval=1,  color="c")
     print(Element["DISPLY"]["STATUS_ITER_FINAL"].format(
         len(j),
         C,

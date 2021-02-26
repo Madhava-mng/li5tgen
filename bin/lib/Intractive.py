@@ -5,6 +5,7 @@ from lib.core import RAND
 from lib.core import NN as N
 from time import strftime
 from itertools import product
+from pyloadart import arrow
 
 
 # [][]][][]]]]
@@ -49,11 +50,14 @@ def dob():  #[][]][]][][][][][][][]]
 def Write(_list, _file):
     print(Element["DISPLY"]["STARTL"], _file)
     with open(_file, "a") as Buffer:
-        for i in _list:
+        for i in range(len(_list)):
             for j in _list:
-                Buffer.write(i+j+"\n")
-            Buffer.write(i+"\n")
+                Buffer.write(_list[i]+j+"\n")
+            Buffer.write(_list[i]+"\n")
+            arrow(i,len(_list),msg="writing" , color="r")
         Buffer.close()
+    arrow(1,1,msg="writing", color="r")
+    print()
     return 0
 
 def Inter(list_=[]):
@@ -90,9 +94,12 @@ def Inter(list_=[]):
     t=[]
     if UPPER in Element["LIST"]["YES"]:
         print(Element["DISPLY"]["UPPCONV"])
-        for i in list_:
-            if not i.isdigit():
-                t += sorted(map(''.join, product(*((c.upper(), c.lower()) for c in str(i)))))
+        for i in range(len(list_)):
+            if not list_[i].isdigit():
+                t += sorted(map(''.join, product(*((c.upper(), c.lower()) for c in str(list_[i])))))
+            arrow(i,len(list_),msg="case   ", color="r")
+        arrow(1, 1, color="r",  msg="case   ")
+        print()
     list_ += t
 
     if SPECIAL in Element["LIST"]["YES"]:
@@ -116,9 +123,12 @@ def Inter(list_=[]):
 
     tmplist=[]
     print(Element["DISPLY"]["DUPLICATE"])
-    for i in list_:
-        if i not in tmplist:
-            tmplist.append(i)
+    for i in range(len(list_)):
+        if list_[i] not in tmplist:
+            tmplist.append(list_[i])
+            arrow(i,len(list_),msg="Junk" , color="r")
+    arrow(1, 1, msg="Junk   ", color="r")
+    print()
     list_ = tmplist
     if FILENAME == "":
         FILENAME = "wordlist.txt"
