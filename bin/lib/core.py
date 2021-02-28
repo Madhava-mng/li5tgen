@@ -89,7 +89,7 @@ Element = {
             "STARTL": "[STARTED] To Write File -->",
             "DUPLICATE": "[REMOVING] Junk",
             "STATUS_ITER": "\r\u001b[7ALine{C}........\u001b[0m: [ {} ]       \r\u001b[1BDone{C}........\u001b[0m: {:.0f}%                \r\u001b[1BSpeed{C}.......\u001b[0m: {} l/s.        \r\u001b[1BLength{C}......\u001b[0m: {}       \r\u001b[1BWritten{C}.....\u001b[0m: {} lines. \r\u001b[1BRemaining{C}...\u001b[0m: {} lines.       \r\u001b[1BTotal{C}.......\u001b[0m: {} lines.",
-            "STATUS_ITER_FINAL":"\r\u001b[7ALine{C}........\u001b[0m: ''                                     \r\u001b[1Bdone{C}........\u001b[0m: 100%                \r\u001b[1Bspeed{C}.......\u001b[0m: 0 l/s.        \r\u001b[1BLength{C}......\u001b[0m: {}      \r\u001b[1BWritten{C}.....\u001b[0m: {} lines.        \r\u001b[1Bremaining{C}...\u001b[0m: 0 lines.          \r\u001b[1BTotal{C}.......\u001b[0m: {}\nStoped{C}......\u001b[0m: {}                  ",
+            "STATUS_ITER_FINAL":"\r\u001b[7ALine{C}........\u001b[0m: ''                                     \r\u001b[1Bdone{C}........\u001b[0m: 100%                \r\u001b[1Bspeed{C}.......\u001b[0m: 0 l/s.        \r\u001b[1BLength{C}......\u001b[0m: {}      \r\u001b[1BWritten{C}.....\u001b[0m: {} lines.        \r\u001b[1Bremaining{C}...\u001b[0m: 0 lines.          \r\u001b[1BTotal{C}.......\u001b[0m: {}\nStoped{C}......\u001b[0m: {}                         ",
             "STATUS_ITER_START": "\nChar{C}........\u001b[0m: {}\nMinimum{C}.....\u001b[0m: {}\nMaximum{C}.....\u001b[0m: {}\nFile{C}........\u001b[0m: {}\nStarted{C}.....\u001b[0m: {}{}\n\n"
             },
 
