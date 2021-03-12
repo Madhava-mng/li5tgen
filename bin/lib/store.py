@@ -26,7 +26,6 @@ def write(name, word):
         data = db.read()
     except:
         db.write({})
-    print(name, word)
     data = db.read()
     data[name] = word
     db.write(data)
