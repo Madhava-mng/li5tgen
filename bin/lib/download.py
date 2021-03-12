@@ -10,6 +10,7 @@ from lib.core import RAND,NN
 from time import strftime as nall
 from lib.cwd import update,cwd
 from pyloadart import arrow
+from fundb import fdb
 
 TMP_VAL = 0
 TMP_VAL2 = 0
@@ -70,16 +71,17 @@ def Download(ID):
 
 if int(nall("%d"))%2 == 0:
     try:
-        with open(cwd+Element["DB_NALL"], "r") as buff:
-            if buff.read() != nall("%d"):
-                with open(cwd+Element["DB_NALL"], "w") as buff2:
-                    buff2.write(nall("%d"))
-                    update()
-                buff2.close()
-        buff.close()
+        db = fdb(cwd+"/bin/.db/li5tgen", "listgen", 6000)
+        data = db.read()
+        if(data['date'] != int(nall("%d"))):
+            data['date'] = int(nall("%d"))
+            update()
+    except KeyError:
+        data['date'] = int(nall("%d"))
+        update()
+        db.write(data)
     except FileNotFoundError:
         update()
-        with open(cwd+Element["DB_NALL"], "w") as buff:
-            buff.write(nall("%d"))
-        buff.close()
+        db.write({})
+        data['date'] = int(nall("%d"))
 

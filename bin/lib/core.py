@@ -341,9 +341,9 @@ Element = {
         G=BR,
         Y=YY,
         GR=GR,
-        MIN = store("/bin/.db/.min_store", "1"),
-        MAX = store("/bin/.db/.max_store", "8"),
-        OUT = store("/bin/.db/.out_store", "wordlist.txt")),
+        MIN = store("min", 1),
+        MAX = store("max", 8),
+        OUT = store("out", "wordlist.txt")),
 
 
     "EDITHELP": """
@@ -367,9 +367,9 @@ Element = {
       -h    --help      This Banner""".format(T="li5tgen",
               L=UU,
               N=NN,
-              MIN = store("/bin/.db/.min_store", "1"),
-              MAX = store("/bin/.db/.max_store", "8"),
-              OUT = store("/bin/.db/.out_store", "wordlist.txt"))
+              MIN = store("min", 1),
+              MAX = store("max", 8),
+              OUT = store("out", "wordlist.txt"))
         }
 
 def Status(length, count):

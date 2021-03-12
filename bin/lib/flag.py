@@ -11,6 +11,7 @@ from lib.cwd import update
 from lib.banner import BANNER
 from lib.store import *
 from lib.reset import reset
+from fundb import fdb
 
 
 def console():
@@ -21,9 +22,9 @@ def console():
 
 def check(LIST):
     CHAR= ""
-    MIN = store("/bin/.db/.min_store", '1')
-    MAX = store("/bin/.db/.max_store", '8')
-    OUT = store("/bin/.db/.out_store", "wordlist.txt")
+    MIN = store("min", 1)
+    MAX = store("max", 8)
+    OUT = store("out", "wordlist.txt")
     FILENAME = ""
 
     try:

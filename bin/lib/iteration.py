@@ -72,10 +72,10 @@ def Iter(char, MIN, MAX, File):
                 return
         if char != "":
             if MIN < MAX or MIN == MAX:
-                write("/bin/.db/.min_store", str(MIN))
-                write("/bin/.db/.max_store", str(MAX))
-                write("/bin/.db/.out_store", File)
-                write("/bin/.db/.char_store", char)
+                write("min", MIN)
+                write("max", MAX)
+                write("out", File)
+                write("chr", char)
                 print(Element["DISPLY"]["STATUS_ITER_START"].format(
                     ",".join(sorted(set(char))),
                     MIN,

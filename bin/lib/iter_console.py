@@ -13,10 +13,10 @@ from lib.store import store, write
 
 class Iter_console(cmd.Cmd):
     prompt = Element["ITERPROMPT"]
-    MIN = store("/bin/.db/.min_store", '1')
-    MAX = store("/bin/.db/.max_store", '8')
-    CHAR = store("/bin/.db/.char_store", "12345678*")
-    OUT = store("/bin/.db/.out_store", "wordlist.txt")
+    MIN = store("min", 1)
+    MAX = store("max", 8)
+    CHAR = store("chr", "12345678")
+    OUT = store("out", "wordlist.txt")
     SET_LIST = ["MIN","MAX","CHARS", "OUT"]
 
     def do_options(self, value):
@@ -32,16 +32,16 @@ class Iter_console(cmd.Cmd):
             values = value.split()
             if values[0].upper() == "MIN":
                 self.MIN = values[1]
-                write("/bin/.db/.min_store", values[1])
+                write("min", int(values[1]))
             elif values[0].upper() == "MAX":
                 self.MAX = values[1]
-                write("/bin/.db/.max_store", values[1])
+                write("max", int(values[1]))
             elif values[0].upper() == "CHARS":
                 self.CHAR = values[1]
-                write("/bin/.db/.char_store", values[1])
+                write("chr", values[1])
             elif values[0].upper() == "OUT":
                 self.OUT = values[1]
-                write("/bin/.db/.out_store", values[1])
+                write("out", values[1])
             print("{} --> {}".format(values[0],values[1]))
         except:
             print("USAGE: \tset <OPTION> <VALUE>")
