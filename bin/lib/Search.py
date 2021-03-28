@@ -1,6 +1,5 @@
 #!/bin/env python3
 
-from lib.uri import LIST_OF_URI
 from re import search
 from re import ASCII
 from lib.core import RAND
@@ -9,6 +8,7 @@ from lib.core import RR
 from lib.core import NN
 
 def Search(Key_words):
+    from lib.uri import LIST_OF_URI
     for Key_word in Key_words:
         for i in range(len(LIST_OF_URI)):
             try:

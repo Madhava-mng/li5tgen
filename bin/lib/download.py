@@ -1,7 +1,6 @@
 #!/bin/env python3
 
 from requests import get
-from lib.uri import LIST_OF_URI
 from re import search
 from re import ASCII
 from lib.core import Element
@@ -40,6 +39,7 @@ def start(URL, Id):
     return
 
 def Get(ID):
+    from lib.uri import LIST_OF_URI
     try:
         x = search(r'(.*?)\|:(.*).*', LIST_OF_URI[ID], ASCII)
         start(x.group(1)+x.group(2), ID)
